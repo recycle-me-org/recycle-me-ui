@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+// import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 import {
@@ -27,6 +27,39 @@ client.query({
   `
 })
   .then(result => console.log(result));
+
+const EXCHANGE_RATES = gql`
+  query GetExchangeRates {
+    rates(currency: "USD") {
+      currency
+      rate
+    }
+  }
+`;
+
+const ExchangeRates = () => {
+  const { loading, error, data } = useQuery(EXCHANGE_RATES);
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error :(</p>;
+
+  return data.rates.map(({ currency, rate }) => (
+    <div key={currency}>
+      <p>
+        {currency}: {rate}
+      </p>
+    </div>
+  ));
+}
+
+const App = () => {
+  return (
+    <div>
+      <h2>Recycle Me</h2>
+      <ExchangeRates />
+    </div>
+  )
+}
 
 ReactDOM.render(
   <React.StrictMode>
