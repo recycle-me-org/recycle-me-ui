@@ -1,5 +1,6 @@
+import React from 'react';
 import './App.css';
-import ExchangeRates from '../../index.js'
+import ExchangeRates from '../ExchangeRates/ExchangeRates'
 
 const App = () => {
   return (
