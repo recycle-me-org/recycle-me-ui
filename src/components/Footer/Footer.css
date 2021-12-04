@@ -1,0 +1,22 @@
+.footer-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+  color: #222421;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.footer-mobile-app, .footer-creators {
+  margin: 30px;
+}
+
+.footer-copyright {
+  color: #767a74;
+}
