@@ -10,6 +10,8 @@ const App = () => {
     <main className='app'>
       <NavBar />
       <LandingPage />
+      {/* <Map /> */}
+      {/* <SearchBar /> */}
       <Footer />
     </main>
   )
