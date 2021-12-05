@@ -5,8 +5,10 @@
 }
 
 .map-container {
-  height: 600px;
-  width: 800px;
+  position: relative;
+  width: 100%;
+  min-height: auto;
+  height: 619px;
 }
 
 .sidebar {
