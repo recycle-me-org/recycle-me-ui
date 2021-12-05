@@ -16,7 +16,7 @@ const ExchangeRates = () => {
       </p>
     </div>
   ));
-}
+};
 
 const EXCHANGE_RATES = gql`
   query GetExchangeRates {
@@ -27,4 +27,4 @@ const EXCHANGE_RATES = gql`
   }
 `;
 
-export default ExchangeRates
+export default ExchangeRates;

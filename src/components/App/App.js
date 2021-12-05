@@ -1,4 +1,3 @@
-import React from 'react';
 import './App.css';
 import ExchangeRates from '../ExchangeRates/ExchangeRates'
 
