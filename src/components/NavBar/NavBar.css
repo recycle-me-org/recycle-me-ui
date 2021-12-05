@@ -1,9 +1,5 @@
 .nav-container {
   display: flex;
-<<<<<<< HEAD
-  flex-direction: row;
-=======
->>>>>>> 19800e9d7aecf311caba8d29a1bc8984d4b8cafc
   align-items: center;
   width: 100%;
   font-family: 'Quicksand', sans-serif;
@@ -34,10 +30,8 @@
   color: #42cbf5;
 }
 
-.nav-search, .nav-test, .nav-creators {
+.nav-search,
+.nav-test,
+.nav-creators {
   margin: 20px;
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 19800e9d7aecf311caba8d29a1bc8984d4b8cafc

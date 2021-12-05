@@ -1,27 +1,23 @@
-import { Link } from 'react-router-dom'
-import './NavBar.css'
-import recycleIcon from '../../images/recycle.png'
+import { Link } from 'react-router-dom';
+import './NavBar.css';
+import recycleIcon from '../../images/recycle.png';
 
 const NavBar = () => {
   return (
-    <header className='nav-container'>
-      <div className='nav-icon-and-h1'>
-        <img src={ recycleIcon } className='recycle-icon' alt='recycle' />
-        <Link to='/'>
-          <h1 className='nav-h1'>Recycle Me</h1>
+    <header className="nav-container">
+      <div className="nav-icon-and-h1">
+        <img src={recycleIcon} className="recycle-icon" alt="recycle" />
+        <Link to="/">
+          <h1 className="nav-h1">Recycle Me</h1>
         </Link>
       </div>
-      <div className='nav-links'>
-        <p className='nav-search'>Search for Item</p>
-        <p className='nav-test'>Test Your Knowledge</p>
-        <p className='nav-creators'>Creators</p>
+      <div className="nav-links">
+        <p className="nav-search">Search for Item</p>
+        <p className="nav-test">Test Your Knowledge</p>
+        <p className="nav-creators">Creators</p>
       </div>
     </header>
-  )
-}
+  );
+};
 
-<<<<<<< HEAD
-export default NavBar
-=======
-export default NavBar
->>>>>>> 19800e9d7aecf311caba8d29a1bc8984d4b8cafc
+export default NavBar;
