@@ -20,4 +20,8 @@ const NavBar = () => {
   )
 }
 
+<<<<<<< HEAD
 export default NavBar
+=======
+export default NavBar
+>>>>>>> 19800e9d7aecf311caba8d29a1bc8984d4b8cafc

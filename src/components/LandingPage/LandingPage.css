@@ -7,7 +7,11 @@
 }
 
 .background-wash {
-  background: linear-gradient(to right, rgb(253, 248, 248) 5%, rgba(148, 148, 148, 0.178));
+  background: linear-gradient(
+    to right,
+    rgb(253, 248, 248) 5%,
+    rgba(148, 148, 148, 0.178)
+  );
 }
 
 .landing-page-img {
