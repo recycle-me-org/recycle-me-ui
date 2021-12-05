@@ -1,12 +1,16 @@
 import './App.css';
-import ExchangeRates from '../ExchangeRates/ExchangeRates'
+// import ExchangeRates from '../ExchangeRates/ExchangeRates'
+import NavBar from '../NavBar/NavBar'
+import LandingPage from '../LandingPage/LandingPage'
+import Footer from '../Footer/Footer'
 
 const App = () => {
   return (
-    <div>
-      <h2>Recycle Me</h2>
-      <ExchangeRates />
-    </div>
+    <main className='app'>
+      <NavBar />
+      <LandingPage />
+      <Footer />
+    </main>
   )
 }
 

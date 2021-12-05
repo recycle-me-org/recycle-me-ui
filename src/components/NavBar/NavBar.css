@@ -15,18 +15,19 @@
 
 .nav-h1 {
   color: #237018;
-  font-size: 40px;
+  font-size: 3.5vw;
 }
 
 .recycle-icon {
   height: 70px;
   width: 70px;
-  margin: 0 20px 0 20px;
+  margin: 20px;
 }
 
 .nav-links {
   display: flex;
   flex-direction: row;
+  font-size: 1.5vw;
   color: #42cbf5;
 }
 
