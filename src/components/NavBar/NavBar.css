@@ -7,7 +7,6 @@
 
 .nav-icon-and-h1 {
   display: flex;
-  flex-direction: row;
   align-items: center;
   margin-right: auto;
 }
@@ -15,6 +14,7 @@
 .nav-h1 {
   color: #237018;
   font-size: 3.5vw;
+  text-decoration: none;
 }
 
 .recycle-icon {
