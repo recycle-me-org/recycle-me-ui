@@ -5,9 +5,6 @@
 }
 
 .map-container {
-  position: relative;
-  width: 100%;
-  min-height: auto;
   height: 619px;
 }
 
