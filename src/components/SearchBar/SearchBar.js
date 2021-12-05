@@ -33,28 +33,32 @@ const SearchBar = () => {
 
   return (
     <form className="search-bar">
-      <input 
-        className="search-bar__input search-bar__input--zip"
-        type="text"
-        name="zip"
-        value={ zip }
-        aria-label="Zip Code"
-        placeholder="ZIP Code"
-        onChange={ (e) => handleChange(e) }
-      >
-      </input>
-      <input
-        className="search-bar__input search-bar__input--materials"
-        type="text"
-        name="materials"
-        value={ materials }
-        aria-label="Material"
-        placeholder="Search for a material (plastic bottle, glass, etc.)"
-        onChange={ (e) => handleChange(e) }
-      >
-      </input>
+      <div className="search-bar__input-container search-bar__input-container--zip">
+        <input 
+          className="search-bar__input"
+          type="text"
+          name="zip"
+          value={ zip }
+          aria-label="ZIP Code"
+          placeholder="ZIP Code"
+          onChange={ (e) => handleChange(e) }
+        >
+        </input>
+        { !validZip && <p className="error-message">Invalid ZIP code</p> }
+      </div> 
+      <div className="search-bar__input-container search-bar__input-container--materials">
+        <input
+          className="search-bar__input"
+          type="text"
+          name="materials"
+          value={ materials }
+          aria-label="Material"
+          placeholder="Search for a material (plastic bottle, glass, etc.)"
+          onChange={ (e) => handleChange(e) }
+        >
+        </input>
+      </div>
       <button className="search-bar__button">Search</button>
-      { !validZip && <h3>Please enter a valid zip code</h3> }
     </form>
   )
 };

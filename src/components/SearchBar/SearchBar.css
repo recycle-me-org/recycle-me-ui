@@ -1,22 +1,27 @@
 .search-bar {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   width: 100%;
   padding: 20px;
   background-color: #EFEFEF;
 }
 
-.search-bar__input, .search-bar__button {
-  padding: 5px;
-  margin: 0px 15px;
+.search-bar__input-container {
+  display: flex;
+  flex-direction: column;
 }
 
-.search-bar__input--zip {
+.search-bar__input-container--zip {
   width: 22%;
 }
 
-.search-bar__input--materials {
+.search-bar__input-container--materials {
   width: 39%;
+}
+
+.search-bar__input, .search-bar__button {
+  padding: 5px;
+  width: 100%;
 }
 
 .search-bar__button {
@@ -24,4 +29,9 @@
   background-color: #00A262;
   color: #FFFFFF;
   border-radius: 2px;
+}
+
+.error-message {
+  color: red;
+  font-size: 0.75rem;
 }
