@@ -1,7 +1,8 @@
 import './App.css';
-import NavBar from '../NavBar/NavBar'
-import LandingPage from '../LandingPage/LandingPage'
-import Footer from '../Footer/Footer'
+import NavBar from '../NavBar/NavBar';
+import LandingPage from '../LandingPage/LandingPage';
+import SearchBar from '../SearchBar/SearchBar';
+import Footer from '../Footer/Footer';
 
 const App = () => {
   return (
@@ -9,7 +10,7 @@ const App = () => {
       <NavBar />
       <LandingPage />
       {/* <Map /> */}
-      {/* <SearchBar /> */}
+      <SearchBar />
       <Footer />
     </main>
   )
