@@ -38,6 +38,9 @@ const SearchBar = () => {
     if (!materials.length) {
       setStatus('materials error');
     }
+    if (!zip.length) {
+      setValidZip(false);
+    }
   }
 
   return (
