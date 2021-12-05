@@ -1,0 +1,17 @@
+.search-bar {
+  display: flex;
+  justify-content: space around;
+  width: 100vw;
+}
+
+.search-bar__input {
+  height: 42px;
+}
+
+.search-bar__input--zip {
+  width: 22%;
+}
+
+.search-bar__input--material {
+  width: 39%;
+}

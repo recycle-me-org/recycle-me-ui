@@ -1,17 +1,13 @@
 import './SearchBar.css';
 
 const SearchBar = () => {
-    return (
-        <div className="search-bar">
-            <h2>Search</h2>
-            <label className="search-bar-input">ZIP
-                <input type="text"></input>
-            </label>
-            <label className="search-bar-input">Keywords
-                <input type="text"></input>
-            </label>
-        </div>
-    )
+  return (
+    <form className="search-bar">
+      <input type="text" aria-label="Zip Code" placeholder="ZIP Code"></input>
+      <input type="text" aria-label="Material" placeholder="Search for a material (plastic bottle, glass, etc.)"></input>
+      <button>Search</button>
+    </form>
+  )
 };
 
 export default SearchBar;
