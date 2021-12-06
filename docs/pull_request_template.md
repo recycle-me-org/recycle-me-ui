@@ -11,6 +11,7 @@
 - 
 
 ### Checklist
+- [ ] I have requested reviews from at least one FE team member and one BE team member
 - [ ] My code follows the style guidelines of this project
 - [ ] I have performed a self-review of my own code
 - [ ] I have commented my code, particularly in hard-to-understand areas
