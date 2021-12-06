@@ -1,19 +1,20 @@
 import './App.css';
 import NavBar from '../NavBar/NavBar';
 import LandingPage from '../LandingPage/LandingPage';
-import SearchBar from '../SearchBar/SearchBar';
 import Footer from '../Footer/Footer';
+import Map from '../Map/Map';
+import SearchBar from '../SearchBar/SearchBar';
 
 const App = () => {
   return (
-    <main className='app'>
+    <main className="app">
       <NavBar />
       <LandingPage />
-      {/* <Map /> */}
+      <Map />
       <SearchBar />
       <Footer />
     </main>
-  )
-}
+  );
+};
 
 export default App;
