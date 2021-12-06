@@ -36,7 +36,7 @@ const client = new ApolloClient({
 client.query({
   query: gql`
     query searchLocations {
-      searchLocations(materialId: "60", location: "19490, United States") {
+      searchLocations(materialId: "60", location: "94549, United States") {
         name
         lat
         long
