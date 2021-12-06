@@ -8,7 +8,7 @@ const NavBar = () => {
       <div className="nav-icon-and-h1">
         <img src={recycleIcon} className="recycle-icon" alt="recycle" />
         <Link to="/">
-          <h1 className="nav-h1">Recycle Me</h1>
+          <h1 className="nav-h1 cy-title">Recycle Me</h1>
         </Link>
       </div>
       <div className="nav-links">
