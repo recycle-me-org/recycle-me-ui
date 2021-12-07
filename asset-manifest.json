@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/recycle-me-ui/static/css/main.9bff797f.chunk.css",
+    "main.js": "/recycle-me-ui/static/js/main.578e895b.chunk.js",
+    "main.js.map": "/recycle-me-ui/static/js/main.578e895b.chunk.js.map",
+    "runtime-main.js": "/recycle-me-ui/static/js/runtime-main.b6b16d3d.js",
+    "runtime-main.js.map": "/recycle-me-ui/static/js/runtime-main.b6b16d3d.js.map",
+    "static/css/2.9e2303c3.chunk.css": "/recycle-me-ui/static/css/2.9e2303c3.chunk.css",
+    "static/js/2.07c0cc63.chunk.js": "/recycle-me-ui/static/js/2.07c0cc63.chunk.js",
+    "static/js/2.07c0cc63.chunk.js.map": "/recycle-me-ui/static/js/2.07c0cc63.chunk.js.map",
+    "index.html": "/recycle-me-ui/index.html",
+    "static/css/2.9e2303c3.chunk.css.map": "/recycle-me-ui/static/css/2.9e2303c3.chunk.css.map",
+    "static/css/main.9bff797f.chunk.css.map": "/recycle-me-ui/static/css/main.9bff797f.chunk.css.map",
+    "static/js/2.07c0cc63.chunk.js.LICENSE.txt": "/recycle-me-ui/static/js/2.07c0cc63.chunk.js.LICENSE.txt",
+    "static/media/landing-page-background.e57d0fa8.jpg": "/recycle-me-ui/static/media/landing-page-background.e57d0fa8.jpg",
+    "static/media/recycle.0c327306.png": "/recycle-me-ui/static/media/recycle.0c327306.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.b6b16d3d.js",
+    "static/css/2.9e2303c3.chunk.css",
+    "static/js/2.07c0cc63.chunk.js",
+    "static/css/main.9bff797f.chunk.css",
+    "static/js/main.578e895b.chunk.js"
+  ]
+}
