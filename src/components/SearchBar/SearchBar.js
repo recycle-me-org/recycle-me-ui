@@ -1,11 +1,30 @@
 import React, { useState, useEffect } from 'react';
 import './SearchBar.css';
 
-const SearchBar = () => {
+import { gql } from '@apollo/client';
+
+const SearchBar = ({ client }) => {
   const [zip, setZip] = useState('');
   const [materials, setMaterials] = useState([]);
   const [validZip, setValidZip] = useState(true);
   const [status, setStatus] = useState('');
+
+  const getLocations = (materialId, location) => {
+    client.query({
+      query: gql`
+        query searchLocations {
+          searchLocations(materialId: ${ materialId }, location: ${ location }) {
+            name
+            lat
+            long
+          }
+        }
+        `,
+      })
+        .then((result) => console.log(result));
+  }
+ 
+  getLocations();
 
   useEffect(() => {
     const zipRegex = new RegExp(/^\d{5}$/)
