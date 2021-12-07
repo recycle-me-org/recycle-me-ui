@@ -20,7 +20,7 @@ workflows:
     jobs:
       - cypress/install:
           build: 'npm run build' # run a custom app build step
-          # start: npm start
+          start: npm start
       - cypress/run:
           requires:
             - cypress/install
