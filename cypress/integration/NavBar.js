@@ -5,6 +5,4 @@ describe('NavBar', () => {
       get('cy-title').should('have.text', 'Recycle Me');
     })
   })
-
-  
 });
