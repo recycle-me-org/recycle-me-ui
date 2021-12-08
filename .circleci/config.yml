@@ -3,7 +3,7 @@ orbs:
   cypress: cypress-io/cypress@1.29.0
 jobs:
   test:
-    executor: cypress-io/default
+    executor: cypress/default
     steps:
       - checkout
       - run:
