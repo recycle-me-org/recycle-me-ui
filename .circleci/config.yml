@@ -2,17 +2,17 @@ version: 2.1
 orbs:
   cypress: cypress-io/cypress@1.29.0
 jobs:
-  test:
+  run-cypress:
     executor: cypress/default
     steps:
-      - checkout
+      - checkout # Checkout Your Project's Code From Github
       - run:
-          name: Install dependencies
+          name: Install Dependencies
           command: npm install
       - run:
           name: Run Cypress Tests
           command: npm test
 workflows:
-  test_app:
+  end-to-end-tests:
     jobs:
-      - test
+      - run-cypress
