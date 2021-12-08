@@ -45,13 +45,8 @@
   },
   "devDependencies": {
     "cypress": "^9.1.1",
-<<<<<<< HEAD
     "react-router": "^6.0.2",
     "start-server-and-test": "^1.14.0",
     "worker-loader": "^3.0.8"
-=======
-    "gh-pages": "^3.2.3",
-    "react-router": "^6.0.2"
->>>>>>> 81977217cdb7b20e399aac13b07bfe476ff75f47
   }
 }
