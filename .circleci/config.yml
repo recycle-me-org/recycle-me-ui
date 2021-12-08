@@ -1,18 +1,23 @@
 version: 2.1
-orbs:
-  cypress: cypress-io/cypress@1.29.0
-jobs:
+orbs: #CircleCI orbs are shareable packages of configuration elements, including jobs, commands, and executors. Orbs make writing and customizing CircleCI config simple.
+  cypress: cypress-io/cypress@1.29.0 # Has all dependencies we need to run our tests
+jobs: #our job has 3 steps: checkout, and the 2 run commands
   run-cypress:
     executor: cypress/default
     steps:
       - checkout # Checkout Your Project's Code From Github
       - run:
-          name: Install Dependencies
+          name: Install Dependencies #names are just labels for developers to understand
           command: npm install
       - run:
           name: Run Cypress Tests
-          command: npm test
+          command: npm test # "start-server-and-test start http://localhost:3000 cy:run" which we changed in the package.json
 workflows:
   end-to-end-tests:
-    jobs:
+    jobs: #has one job, which is to run cypress
       - run-cypress
+
+      # Above this line, the circleCI orb is configuring the machine
+      # $ git clone <your-github-repo-url-here>
+      # $ npm install
+      #$ start-server-and-test start http://localhost:3000 cy:run
