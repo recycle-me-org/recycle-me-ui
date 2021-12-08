@@ -18,7 +18,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "cy:run": "cypress run",
+    "test": "start-server-and-test start http://localhost:3000 cy:run",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -43,6 +44,8 @@
   },
   "devDependencies": {
     "cypress": "^9.1.1",
-    "react-router": "^6.0.2"
+    "react-router": "^6.0.2",
+    "start-server-and-test": "^1.14.0",
+    "worker-loader": "^3.0.8"
   }
 }
