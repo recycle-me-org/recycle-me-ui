@@ -1,12 +1,46 @@
-# to use orbs, must use version >= 2.1
 version: 2.1
-orbs:
-  # import Cypress orb by specifying an exact version x.y.z
-  # or the latest version 1.x.x using "@1" syntax
-  cypress: cypress-io/cypress@1
+orbs: 
+  cypress: cypress-io/cypress@1.29.0 # 
+jobs:
+  run-cypress:
+    executor: cypress/default
+    steps:
+      - checkout 
+      - run:
+          name: Install Dependencies
+          command: npm install
+      - run:
+          name: Run Cypress Tests
+          command: npm test
 workflows:
-  build:
+  end-to-end-tests:
     jobs:
-      # "cypress" is the name of the imported orb
-      # "run" is the name of the job defined in Cypress orb
-      - cypress/run
+      - run-cypress
+
+
+
+# # to use orbs, must use version >= 2.1
+# version: 2.1
+# orbs:
+#   # import Cypress orb by specifying an exact version x.y.z
+#   # or the latest version 1.x.x using "@1" syntax
+#   cypress: cypress-io/cypress@1
+# jobs: 
+#   test: 
+#     steps: 
+#       - checkout
+#       - run:
+#           name: Install Dependencies 
+#           command: npm install
+#       - run:
+#           name: run cypress tests
+#           command: npm test
+
+
+# workflows:
+#   build:
+#     jobs:
+#       # "cypress" is the name of the imported orb
+#       # "run" is the name of the job defined in Cypress orb
+#       - cypress/run
+#       - start server
