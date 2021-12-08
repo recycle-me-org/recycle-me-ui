@@ -19,9 +19,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "cy:run": "cypress run",
-    "wait-and-test": "npm start; sleep 20; npm run cy:run",
-    "test": "start-server-and-test start http://localhost:3000 wait cy:run",
-    "test-unit": "react-scripts test",
+    "test": "start-server-and-test start http://localhost:3000 cy:run",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
