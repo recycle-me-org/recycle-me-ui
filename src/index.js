@@ -35,11 +35,12 @@ const client = new ApolloClient({
 
 client.query({
   query: gql`
-    query searchLocations {
-      searchLocations(materialId: "60", location: "94549, United States") {
+    query materials {
+      materials {
+        id
         name
-        lat
-        long
+        description
+        imageUrl
       }
     }
     `,
