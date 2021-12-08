@@ -45,6 +45,7 @@
   "devDependencies": {
     "cypress": "^9.1.1",
     "react-router": "^6.0.2",
+    "start-server-and-test": "^1.14.0",
     "worker-loader": "^3.0.8"
   }
 }
