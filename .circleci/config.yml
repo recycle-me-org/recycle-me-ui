@@ -1,9 +1,9 @@
 version: 2.1
 orbs:
-  node: cypress-io/cypress@1.29.0
+  cypress: cypress-io/cypress@1.29.0
 jobs:
   test:
-    executor: cypress/default
+    executor: cypress-io/default
     steps:
       - checkout
       - run:
