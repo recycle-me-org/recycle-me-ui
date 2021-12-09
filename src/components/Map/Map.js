@@ -38,7 +38,6 @@ function MyComponent() {
             <h1>InfoWindow</h1>
           </div>
         </InfoWindow>
-        <></>
       </GoogleMap>
     </LoadScript>
   );
