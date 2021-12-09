@@ -1,128 +1,53 @@
-import React, { PureComponent } from 'react';
-// import ReactMapGL from 'react-map-gl';
-import Geocoder from 'react-mapbox-gl-geocoder';
-import ReactMapGL, { Marker } from 'react-map-gl';
-import { Container, Col, Row } from 'reactstrap';
+import React, { useRef, useEffect, useState } from 'react';
 import './Map.css';
-
-const mapStyle = {
-  width: '1000px',
-  height: 600,
-};
-
-const mapboxApiKey =
+import mapboxgl from 'mapbox-gl';
+mapboxgl.accessToken =
   'pk.eyJ1Ijoicm93ZW4wOCIsImEiOiJja3dzaW93MGEwc3E3Mm5xbHhwODl3ZHdjIn0.suCrTYweGk0ASHkCi4rmWg';
 
-const params = {
-  country: 'ca',
-};
+export default function Map() {
+  const mapContainer = useRef(null);
+  const map = useRef(null);
+  const [lng, setLng] = useState(-104.99);
+  const [lat, setLat] = useState(39.73);
+  const [zoom, setZoom] = useState(11);
 
-const CustomMarker = ({ index, marker }) => {
-  return (
-    <Marker longitude={marker.longitude} latitude={marker.latitude}>
-      <div className="marker">
-        <span>
-          <b>{index + 1}</b>
-        </span>
-      </div>
-    </Marker>
-  );
-};
-
-class Map extends PureComponent {
-  constructor(props) {
-    super(props);
-    this.state = {
-      viewport: {
-        latitude: 45.50884,
-        longitude: -73.58781,
-        zoom: 15,
-      },
-      tempMarker: null,
-      markers: [],
-    };
-  }
-
-  onSelected = (viewport, item) => {
-    this.setState({
-      viewport,
-      tempMarker: {
-        name: item.place_name,
-        longitude: item.center[0],
-        latitude: item.center[1],
-      },
+  useEffect(() => {
+    if (map.current) return; // initialize map only once
+    map.current = new mapboxgl.Map({
+      container: mapContainer.current,
+      style: 'mapbox://styles/mapbox/streets-v11',
+      center: [lng, lat],
+      zoom: zoom,
     });
-  };
 
-  add = () => {
-    var { tempMarker } = this.state;
+    // map.addControl(
+    //   new mapboxgl.GeolocateControl({
+    //   positionOptions: {
+    //   enableHighAccuracy: true
+    //   },
+    //   // When active the map will receive updates to the device's location as it changes.
+    //   trackUserLocation: true,
+    //   // Draw an arrow next to the location dot to indicate which direction the device is heading.
+    //   showUserHeading: true
+    //   })
+    //   );
+  });
 
-    this.setState((prevState) => ({
-      markers: [...prevState.markers, tempMarker],
-      tempMarker: null,
-    }));
-  };
+  useEffect(() => {
+    if (!map.current) return; // wait for map to initialize
+    map.current.on('move', () => {
+      setLng(map.current.getCenter().lng.toFixed(4));
+      setLat(map.current.getCenter().lat.toFixed(4));
+      setZoom(map.current.getZoom().toFixed(2));
+    });
+  });
 
-  render() {
-    const { viewport, tempMarker, markers } = this.state;
-    return (
-      <Container fluid={true}>
-        <Row>
-          <Col>
-            <h2>Mapbox Tutorial</h2>
-          </Col>
-        </Row>
-        <Row className="py-4">
-          <Col xs={2}>
-            <Geocoder
-              mapboxApiAccessToken={mapboxApiKey}
-              onSelected={this.onSelected}
-              viewport={viewport}
-              hideOnSelect={true}
-              value=""
-              queryParams={params}
-            />
-          </Col>
-          <Col>
-            <Button color="primary" onClick={this.add}>
-              Add
-            </Button>
-          </Col>
-        </Row>
-        <Row>
-          <Col>
-            <ReactMapGL
-              mapboxApiAccessToken={mapboxApiKey}
-              mapStyle="mapbox://styles/mapbox/streets-v11"
-              {...viewport}
-              {...mapStyle}
-              onViewportChange={(viewport) => this.setState({ viewport })}
-            >
-              {tempMarker && (
-                <Marker
-                  longitude={tempMarker.longitude}
-                  latitude={tempMarker.latitude}
-                >
-                  <div className="marker temporary-marker">
-                    <span></span>
-                  </div>
-                </Marker>
-              )}
-              {this.state.markers.map((marker, index) => {
-                return (
-                  <CustomMarker
-                    key={`marker-${index}`}
-                    index={index}
-                    marker={marker}
-                  />
-                );
-              })}
-            </ReactMapGL>
-          </Col>
-        </Row>
-      </Container>
-    );
-  }
+  return (
+    <section className="map-display-container">
+      <div className="sidebar">
+        Longitude: {lng} | Latitude: {lat} | Zoom: {zoom}
+      </div>
+      <div ref={mapContainer} className="map-container" />
+    </section>
+  );
 }
-
-export default Map;
