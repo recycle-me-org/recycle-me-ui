@@ -7,7 +7,7 @@ export default function SimpleMap() {
   const defaultProps = {
     center: {
       lat: 39.742043,
-      lng: 77.01502627,
+      lng: -104.991531,
     },
     zoom: 11,
   };
