@@ -1,11 +1,31 @@
 import React, { useState, useEffect } from 'react';
+import Select from 'react-select';
 import './SearchBar.css';
+import { gql } from '@apollo/client';
 
-const SearchBar = () => {
+const SearchBar = ({ client }) => {
   const [zip, setZip] = useState('');
   const [materials, setMaterials] = useState([]);
   const [validZip, setValidZip] = useState(true);
-  const [status, setStatus] = useState('');
+  const [status, setStatus] = useState(''); // leave this for now, but we may delete later
+  const [materialsOptions, setMaterialsOptions] = useState([]);
+
+  useEffect(() => {
+    client.query({
+      query: gql`
+      query materials {
+        materials {
+          id
+          name
+          description
+          imageUrl
+        }
+      }
+      `,
+    }).then(data => {
+      setMaterials(data.data.materials)
+    })
+  })
 
   useEffect(() => {
     const zipRegex = new RegExp(/^\d{5}$/)
@@ -43,8 +63,21 @@ const SearchBar = () => {
     }
   }
 
+useEffect(() => {
+  const materialData = client.cache.data.data
+  const keys = Object.keys(materialData) 
+  const materialsArray = keys.reduce((acc, currentKey) => {
+    materialData[currentKey].value = materialData[currentKey].name
+    materialData[currentKey].label = materialData[currentKey].name
+    acc.push(materialData[currentKey])
+    return acc
+  }, [])
+  setMaterialsOptions(materialsArray)
+}, [materials])
+
   return (
     <form className="search-bar" onSubmit={ (e) => handleSubmit(e) }>
+      <Select options={ materialsOptions } />
       <div className="search-bar__input-container search-bar__input-container--zip">
         <input 
           className="search-bar__input"
@@ -58,7 +91,8 @@ const SearchBar = () => {
         </input>
         { !validZip && <p className="error-message">Invalid ZIP code</p> }
       </div> 
-      <div className="search-bar__input-container search-bar__input-container--materials">
+      {/* we may want to add some of this functionality to the select component later */}
+      {/* <div className="search-bar__input-container search-bar__input-container--materials">
         <input
           className="search-bar__input"
           type="text"
@@ -70,7 +104,7 @@ const SearchBar = () => {
         >
         </input>
         { status === 'materials error' && <p className="error-message">Invalid materials</p> }
-      </div>
+      </div> */}
       <button className="search-bar__button">Search</button>
     </form>
   )
