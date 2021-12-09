@@ -1,5 +1,10 @@
 import React from 'react';
-import { GoogleMap, LoadScript, InfoBox, Marker } from '@react-google-maps/api';
+import {
+  GoogleMap,
+  LoadScript,
+  InfoWindow,
+  Marker,
+} from '@react-google-maps/api';
 
 const containerStyle = {
   width: '800px',
@@ -14,27 +19,25 @@ const position = {
   lat: 37.772,
   lng: -122.214,
 };
-
-const options = { closeBoxURL: '', enableEventPropagation: true };
-
-const onLoad = (infoBox) => {
-  console.log('infoBox: ', infoBox);
+const divStyle = {
+  background: `white`,
+  border: `1px solid #ccc`,
+  padding: 15,
 };
 
+const onLoad = (infoWindow) => {
+  console.log('infoWindow: ', infoWindow);
+};
 function MyComponent() {
   return (
     <LoadScript googleMapsApiKey="AIzaSyAU7oHPj92fxgzUEeaoIEv4WqQYOBWxOJ8">
       <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={10}>
         <Marker position={position} />
-        <InfoBox onLoad={onLoad} options={options} position={center}>
-          <div
-            style={{ backgroundColor: 'yellow', opacity: 0.75, padding: 12 }}
-          >
-            <div style={{ fontSize: 16, fontColor: `#08233B` }}>
-              Hello, World!
-            </div>
+        <InfoWindow onLoad={onLoad} position={position}>
+          <div style={divStyle}>
+            <h1>InfoWindow</h1>
           </div>
-        </InfoBox>
+        </InfoWindow>
         <></>
       </GoogleMap>
     </LoadScript>
