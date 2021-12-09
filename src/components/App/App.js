@@ -5,13 +5,13 @@ import Footer from '../Footer/Footer';
 import Map from '../Map/Map';
 import SearchBar from '../SearchBar/SearchBar';
 
-const App = () => {
+const App = ({ client }) => {
   return (
     <main className="app">
       <NavBar />
       <LandingPage />
       <Map />
-      <SearchBar />
+      <SearchBar client={client} />
       <Footer />
     </main>
   );
