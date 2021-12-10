@@ -4,11 +4,13 @@ import './SearchBar.css';
 import { gql } from '@apollo/client';
 
 const SearchBar = ({ client }) => {
-  const [zip, setZip] = useState('');
+  const [zip, setZip] = useState('80031');
   const [materials, setMaterials] = useState([]);
   const [validZip, setValidZip] = useState(true);
   const [status, setStatus] = useState(''); // leave this for now, but we may delete later
   const [materialsOptions, setMaterialsOptions] = useState([]);
+  const [singleMaterial, setSingleMaterial] = useState('60');
+  const [locations, setLocations] = useState([]);
 
   useEffect(() => {
     client.query({
@@ -73,7 +75,40 @@ useEffect(() => {
     return acc
   }, [])
   setMaterialsOptions(materialsArray)
-}, [materials])
+}, [materials]);
+
+const getLocations = () => {
+  // const locationData = `80031, United States`
+  console.log('singleMaterial: ', singleMaterial);
+  console.log('zip: ', zip)
+  client.query({
+    query: gql`
+      query searchLocations($singleMaterial: String!, $zip: String!) {
+        searchLocations(materialId: $singleMaterial, location: $zip) {
+          name
+          lat
+          long
+          hours
+          phone
+          url
+          distance
+          address
+        }
+      }
+    `,
+  }).then(data => {
+    console.log(data);
+    console.log(materialsOptions)
+    // setLocations(data.data.materials)
+  })
+}
+
+const handleClick = (e) => {
+  e.preventDefault();
+  if (validZip && materials) {
+    getLocations();
+  }
+}
 
   return (
     <form className="search-bar" onSubmit={ (e) => handleSubmit(e) }>
@@ -105,7 +140,7 @@ useEffect(() => {
         </input>
         { status === 'materials error' && <p className="error-message">Invalid materials</p> }
       </div> */}
-      <button className="search-bar__button">Search</button>
+      <button onClick={ (e) => handleClick(e) } className="search-bar__button">Search</button>
     </form>
   )
 };
