@@ -6,6 +6,9 @@ import {
   Marker,
 } from '@react-google-maps/api';
 
+require('dotenv').config();
+const mapsApiKey = process.env.REACT_APP_API_KEY;
+
 const containerStyle = {
   width: '800px',
   height: '400px',
@@ -32,7 +35,7 @@ const onLoad = (infoWindow) => {
 
 function RecyclingLocationMap() {
   return (
-    <LoadScript googleMapsApiKey="AIzaSyAU7oHPj92fxgzUEeaoIEv4WqQYOBWxOJ8">
+    <LoadScript googleMapsApiKey={mapsApiKey}>
       <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={10}>
         <Marker position={position} />
         <InfoWindow onLoad={onLoad} position={position}>
