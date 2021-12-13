@@ -1,6 +1,6 @@
 import './LandingPage.css';
 import landingPageBackground from '../../images/landing-page-background.jpg';
-
+import recycleInstructions from '../../images/recycle-instructions.png';
 const LandingPage = () => {
   return (
     <section className="landing-page-container">
