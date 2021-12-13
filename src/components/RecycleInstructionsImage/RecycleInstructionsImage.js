@@ -7,7 +7,7 @@ const RecycleInstructionsImage = () => {
       <img
         src={recycleInstructions}
         className="recycle-instructional-img"
-        alt="instructional recycling image"
+        alt="instructional recycling"
       ></img>
     </div>
   );
