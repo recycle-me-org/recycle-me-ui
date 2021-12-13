@@ -1,11 +1,11 @@
 import './RecycleInstructionsImage.css';
-import recycleTutorial from '../../images/tutorial.png';
+import recycleInstructions from '../../images/recycle-instructions.png';
 
 const RecycleInstructionsImage = () => {
   return (
     <div className="recycling-instructional-image">
       <img
-        src={recycleTutorial}
+        src={recycleInstructions}
         className="recycle-instructional-img"
         alt="instructional recycling image"
       ></img>
