@@ -6,13 +6,13 @@ import Map from '../Map/Map';
 import SearchBar from '../SearchBar/SearchBar';
 import RecycleInstructionsImage from '../RecycleInstructionsImage/RecycleInstructionsImage';
 
-const App = () => {
+const App = ({ client }) => {
   return (
     <main className="app">
       <NavBar />
       <LandingPage />
       <Map />
-      <SearchBar />
+      <SearchBar client={client} />
       <RecycleInstructionsImage />
       <Footer />
     </main>
