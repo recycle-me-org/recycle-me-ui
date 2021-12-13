@@ -5,14 +5,15 @@ import Footer from '../Footer/Footer';
 import Map from '../Map/Map';
 import SearchBar from '../SearchBar/SearchBar';
 import RecycleInstructionsImage from '../RecycleInstructionsImage/RecycleInstructionsImage';
+
 const App = () => {
   return (
     <main className="app">
       <NavBar />
       <LandingPage />
-      <RecycleInstructionsImage />
       <Map />
       <SearchBar />
+      <RecycleInstructionsImage />
       <Footer />
     </main>
   );
