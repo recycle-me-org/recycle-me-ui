@@ -30,21 +30,21 @@ import {
 
 const client = new ApolloClient({
   uri: 'https://recycle-me-api.herokuapp.com/graphql',
-  cache: new InMemoryCache()
+  cache: new InMemoryCache(),
 });
 
-client.query({
-  query: gql`
-    query searchLocations {
-      searchLocations(materialId: "60", location: "94549, United States") {
-        name
-        lat
-        long
-      }
-    }
-    `,
-  })
-    .then((result) => console.log(result));
+// client.query({
+//   query: gql`
+//     query searchLocations {
+//       searchLocations(materialId: "60", location: "94549, United States") {
+//         name
+//         lat
+//         long
+//       }
+//     }
+//     `,
+//   })
+//     .then((result) => console.log(result));
 
 ReactDOM.render(
   <React.StrictMode>

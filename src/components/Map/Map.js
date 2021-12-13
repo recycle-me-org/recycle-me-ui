@@ -15,21 +15,13 @@ const markers = [
   {
     id: 1,
     name: placeDetails.result.name,
-    position: {
-      lat: placeDetails.result.geometry.location.lat,
-      lng: placeDetails.result.geometry.location.lng,
-    },
+    position: placeDetails.result.geometry.location,
   },
 ];
 
 const containerStyle = {
   width: '800px',
   height: '400px',
-};
-
-const center = {
-  lat: -33.866489,
-  lng: 151.1958561,
 };
 
 const Map = () => {
@@ -41,11 +33,15 @@ const Map = () => {
     }
     setActiveMarker(marker);
   };
-  console.log('name', placeDetails.result.name);
+  console.log('marker', markers);
 
   return (
     <LoadScript googleMapsApiKey={mapsApiKey}>
-      <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={10}>
+      <GoogleMap
+        mapContainerStyle={containerStyle}
+        center={placeDetails.result.geometry.location}
+        zoom={12}
+      >
         {markers.map(({ id, name, position }) => (
           <Marker
             key={id}
@@ -55,7 +51,7 @@ const Map = () => {
             {activeMarker === id ? (
               <InfoWindow onCloseClick={() => setActiveMarker(null)}>
                 <div className="info-window">
-                  <h1>{placeDetails.result.name}</h1>
+                  <h1>{name}</h1>
                   <p>{placeDetails.result.formatted_address}</p>
                   <p>{placeDetails.result.formatted_phone_number}</p>
                   <p>{placeDetails.result.website}</p>
