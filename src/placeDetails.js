@@ -1,4 +1,4 @@
-placeDetails = {
+const placeDetails = {
   html_attributions: [],
   result: {
     address_components: [

@@ -1,3 +1,9 @@
+.info-window {
+  background: white;
+  border: 1px solid #cccc;
+  padding: 15;
+}
+
 .map-display-container {
   position: relative;
   width: 100%;
