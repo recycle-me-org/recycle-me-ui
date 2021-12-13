@@ -7,7 +7,7 @@ import {
 } from '@react-google-maps/api';
 
 require('dotenv').config();
-const mapsApiKey = process.env.REACT_APP_API_KEY;
+const mapsApiKey = process.env.REACT_APP_MAP_KEY;
 
 const containerStyle = {
   width: '800px',
@@ -23,6 +23,7 @@ const position = {
   lat: 37.772,
   lng: -122.214,
 };
+
 const divStyle = {
   background: `white`,
   border: `1px solid #ccc`,
