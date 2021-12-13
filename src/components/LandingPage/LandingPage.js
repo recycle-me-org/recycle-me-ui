@@ -17,13 +17,6 @@ const LandingPage = () => {
         </h1>
         <h2 className="landing-page-h2">Bin less, recycle more.</h2>
       </div>
-      <div className="recycling-instructional-image">
-        <img
-          src={recycleInstructions}
-          className="recycle-instructional-img"
-          alt="instructional recycling image"
-        ></img>
-      </div>
     </section>
   );
 };
