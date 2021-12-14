@@ -13,6 +13,12 @@ const SearchBar = ({ client }) => {
   const [materialId, setMaterialId] = useState('');
   const [locations, setLocations] = useState([]);
   const [placeId, setPlaceId] = useState('');
+  const { data } = useQuery(placeIdQuery, {
+    variables: {
+      materialId: '60',
+      location: '80031, United States',
+    },
+  });
 
   useEffect(() => {
     client
@@ -22,6 +28,8 @@ const SearchBar = ({ client }) => {
             materials {
               id
               name
+              description
+              imageUrl
             }
           }
         `,
@@ -79,12 +87,12 @@ const SearchBar = ({ client }) => {
     setMaterialsOptions(materialsArray);
   }, [materials]);
 
-  const { data, loading, error } = useQuery(placeIdQuery, {
-    variables: {
-      materialId: '60',
-      location: '80031, United States',
-    },
-  });
+  // const { data } = useQuery(placeIdQuery, {
+  //   variables: {
+  //     materialId: '60',
+  //     location: '80031, United States',
+  //   },
+  // });
 
   // const getLocations = () => {
   //   const locationData = `80031, United States`
@@ -108,10 +116,16 @@ const SearchBar = ({ client }) => {
   const handleClick = (e) => {
     e.preventDefault();
     if (validZip && materials) {
-      setMaterialId('60');
-      setLocation('80021');
+      console.log('data', data);
     }
   };
+
+  // const handleClick = (e) => {
+  //   e.preventDefault();
+  //   if (validZip && materials) {
+  //     getLocations();
+  //   }
+  // }
   console.log(data);
   // console.log(loading);
   // console.log(error);
