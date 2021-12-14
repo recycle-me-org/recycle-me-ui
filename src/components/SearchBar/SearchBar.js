@@ -1,165 +1,53 @@
-import React, { useState, useEffect } from 'react';
-import Select from 'react-select';
+import React, { useState } from 'react';
+import { gql, useLazyQuery } from '@apollo/client';
+import MaterialsDropdown from '../MaterialsDropdown/MaterialsDropdown';
 import './SearchBar.css';
-import { gql, useQuery } from '@apollo/client';
-import { placeIdQuery } from '../../queries/SearchLocations';
 
 const SearchBar = ({ client }) => {
-  const [location, setLocation] = useState('');
-  const [materials, setMaterials] = useState([]);
-  const [validZip, setValidZip] = useState(true);
-  const [status, setStatus] = useState(''); // leave this for now, but we may delete later
-  const [materialsOptions, setMaterialsOptions] = useState([]);
   const [materialId, setMaterialId] = useState('');
-  const [locations, setLocations] = useState([]);
-  const [placeId, setPlaceId] = useState('');
-  const { data } = useQuery(placeIdQuery, {
-    variables: {
-      materialId: '60',
-      location: '80031, United States',
-    },
-  });
+  const [location, setLocation] = useState('');
 
-  useEffect(() => {
-    client
-      .query({
-        query: gql`
-          query materials {
-            materials {
-              id
-              name
-              description
-              imageUrl
-            }
-          }
-        `,
-      })
-      .then((data) => {
-        setMaterials(data.data.materials);
-      });
-  });
+  const updateMaterialId = (id) => setMaterialId(id);
 
-  useEffect(() => {
-    const zipRegex = new RegExp(/^\d{5}$/);
-    const timerId = setTimeout(() => {
-      if (zipRegex.test(location) || !location.length) {
-        setValidZip(true);
-      } else {
-        setValidZip(false);
+  const GET_PLACE_IDS = gql`
+    query searchLocations($materialId: String!, $location: String!) {
+      searchLocations(materialId: $materialId, location: $location) {
+        placeId
       }
-    }, 500);
+    }
+  `;
 
-    return () => {
-      clearTimeout(timerId);
-    };
-  }, [location]);
+  const [getPlaceIds, { loading, error, data }] = useLazyQuery(GET_PLACE_IDS);
 
+  console.log('data: ', data)
+  console.log('error: ', error?.message)
+  
   const handleChange = (e) => {
-    const input = e.target;
-    if (input.name === 'location') {
-      setLocation(input.value);
-    }
-    if (input.name === 'materials') {
-      setStatus('');
-      setMaterials(input.value);
-    }
+    const locationInput = e.target.value;
+    setLocation(locationInput);
   };
-
+  
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!materials.length) {
-      setStatus('materials error');
-    }
-    if (!location.length) {
-      setValidZip(false);
-    }
-  };
-
-  useEffect(() => {
-    const materialData = client.cache.data.data;
-    const keys = Object.keys(materialData);
-    const materialsArray = keys.reduce((acc, currentKey) => {
-      materialData[currentKey].value = materialData[currentKey].name;
-      materialData[currentKey].label = materialData[currentKey].name;
-      acc.push(materialData[currentKey]);
-      return acc;
-    }, []);
-    setMaterialsOptions(materialsArray);
-  }, [materials]);
-
-  // const { data } = useQuery(placeIdQuery, {
-  //   variables: {
-  //     materialId: '60',
-  //     location: '80031, United States',
-  //   },
-  // });
-
-  // const getLocations = () => {
-  //   const locationData = `80031, United States`
-  //   console.log('materialId: ', materialId);
-  //   console.log('location: ', location)
-  //   client.query({
-  //     query: gql`
-  //       query searchLocations($materialId: String!, $location: String!) {
-  //         searchLocations(materialId: parseInt($materialId), location: $location) {
-  //           placeId
-  //         }
-  //       }
-  //     `,
-  //   }).then(data => {
-  //     console.log(data);
-  //     console.log(materialsOptions)
-  //     // setLocations(data.data.materials)
-  //   })
-  // }
-
-  const handleClick = (e) => {
-    e.preventDefault();
-    if (validZip && materials) {
-      console.log('data', data);
-    }
-  };
-
-  // const handleClick = (e) => {
-  //   e.preventDefault();
-  //   if (validZip && materials) {
-  //     getLocations();
-  //   }
-  // }
-  console.log(data);
-  // console.log(loading);
-  // console.log(error);
+    getPlaceIds({ variables: { materialId: materialId, location: `${location}, United States` }})
+  }
 
   return (
-    <form className="search-bar" onSubmit={(e) => handleSubmit(e)}>
-      <Select options={materialsOptions} />
+    <form onSubmit={ (e) => handleSubmit(e) } className="search-bar" >
+      <MaterialsDropdown updateMaterialId={ updateMaterialId } />
       <div className="search-bar__input-container search-bar__input-container--zip">
         <input
           className="search-bar__input"
           type="text"
-          name="zip"
+          name="location"
           value={location}
-          aria-label="ZIP Code"
-          placeholder="ZIP Code"
-          onChange={(e) => handleChange(e)}
-        ></input>
-        {!validZip && <p className="error-message">Invalid ZIP code</p>}
-      </div>
-      {/* we may want to add some of this functionality to the select component later */}
-      {/* <div className="search-bar__input-container search-bar__input-container--materials">
-        <input
-          className="search-bar__input"
-          type="text"
-          name="materials"
-          value={ materials }
-          aria-label="Material"
-          placeholder="Search for a material (plastic bottle, glass, etc.)"
+          aria-label="location"
+          placeholder="location"
           onChange={ (e) => handleChange(e) }
         >
         </input>
-        { status === 'materials error' && <p className="error-message">Invalid materials</p> }
-      </div> */}
-      <button onClick={(e) => handleClick(e)} className="search-bar__button">
+      </div>
+      <button className="search-bar__button">
         Search
       </button>
     </form>
