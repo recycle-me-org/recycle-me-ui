@@ -3,7 +3,7 @@ import { gql, useLazyQuery } from '@apollo/client';
 import MaterialsDropdown from '../MaterialsDropdown/MaterialsDropdown';
 import './SearchBar.css';
 
-const SearchBar = ({ client }) => {
+const SearchBar = () => {
   const [materialId, setMaterialId] = useState('');
   const [location, setLocation] = useState('');
 
@@ -18,9 +18,6 @@ const SearchBar = ({ client }) => {
   `;
 
   const [getPlaceIds, { loading, error, data }] = useLazyQuery(GET_PLACE_IDS);
-
-  console.log('data: ', data)
-  console.log('error: ', error?.message)
   
   const handleChange = (e) => {
     const locationInput = e.target.value;
@@ -33,24 +30,29 @@ const SearchBar = ({ client }) => {
   }
 
   return (
-    <form onSubmit={ (e) => handleSubmit(e) } className="search-bar" >
-      <MaterialsDropdown updateMaterialId={ updateMaterialId } />
-      <div className="search-bar__input-container search-bar__input-container--zip">
-        <input
-          className="search-bar__input"
-          type="text"
-          name="location"
-          value={location}
-          aria-label="location"
-          placeholder="location"
-          onChange={ (e) => handleChange(e) }
-        >
-        </input>
-      </div>
-      <button className="search-bar__button">
-        Search
-      </button>
-    </form>
+    <>
+      { loading && <p>Loading...</p> }
+      { error && <p>{ error.message }</p> }
+      { data && console.log('data: ', data) }
+      <form onSubmit={ (e) => handleSubmit(e) } className="search-bar" >
+        <MaterialsDropdown updateMaterialId={ updateMaterialId } />
+        <div className="search-bar__input-container search-bar__input-container--zip">
+          <input
+            className="search-bar__input"
+            type="text"
+            name="location"
+            value={location}
+            aria-label="location"
+            placeholder="location"
+            onChange={ (e) => handleChange(e) }
+          >
+          </input>
+        </div>
+        <button className="search-bar__button">
+          Search
+        </button>
+      </form>
+    </>
   );
 };
 
