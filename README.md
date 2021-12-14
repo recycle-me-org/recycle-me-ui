@@ -1,16 +1,19 @@
 <div align="center">
-<h1> ♻ Recycle Me 	♻️</h1>
-<p><strong>Because sometimes we need a little help recycling.
-    Bin less, recycle more.</strong></p>
-<p>Recycle me is a web application built for the environmentally conscious person who would like to know more about recycling.  When the user visits the app, they are greeted by a map, search bar, and an instructional list of items that can be recycled in the recycle bin at home.  The user can enter their address or zip code, as well as a hard to recycle item (which autofills while the user is typing) into the search bar.  When the user presses the search key, the ten closest recycle drop-off locations for that hard to reycle item will render on the map.  The user can click on a specific map marker to see the business name, address, phone number, and a link to the companies external website.</p>
-<a href="https://raquel-written-in-the-stars.surge.sh">Visit the [deployed site]().</a>
+<h1> ♻ Recycle Me ♻️</h1>
+<p><strong>"Because sometimes we need a little help recycling.
+    Bin less, recycle more."</strong></p>
+<p>Recycle me is a web application built for the environmentally conscious person who would like to know more about recycling.  When the user visits the app, they are greeted by a map, search bar, and an instructional list of items that can be recycled in the recycle bin at home.  The user can enter their address or zip code, as well as a hard to recycle item (which autofills while the user is typing) into the search bar.  When the user presses the search key, the ten closest recycle drop-off locations for the specific hard to reycle item will render on the map.  The user can click on a specific map marker to see the business name, address, phone number, and a link to the companies external website.</p>
+<a href="https://raquel-written-in-the-stars.surge.sh">Visit the deployed application here</a>
 </div> 
 
 ## Demo
 
 
 ## Goals
-- 
+For the Capstone Project, Students at Turing School of Software and Design collaborate with students from the frontend and backend engineering programs to build a full stack application. The project goal is to explore and implement new concepts, patterns, or libraries that have not been explicitly taught while at Turing.  New technologies for our team included...
+- Google Maps 
+- Apollo
+- GraphQL
 
 ## Technologies
 <table>
@@ -48,32 +51,11 @@ To run the app locally:
   - Run `npm start`
   - Copy the local host address to your browser, and enjoy!
 
-## Contributors
-  - [Raquel Hill](https://github.com/Raquelhill)
-  - [Sara Rudy](https://github.com/sarahrudy)
-  - [Anthony Iacono](https://github.com/anthony-iacono)
-  - [Michael Mattson](https://github.com/michaelpmattson)
-  - [Henry Schmid](https://github.com/hschmid516)
-  - [Ezzedine Alwafai](https://github.com/ealwafai)
-  
-  **Project Manager**
-
-- Brian Zanti
-- Dallas Slieker
-
-[Project specification]() provided by:
-
-Turing School of Software & Design
-[GitHub](https://github.com/turingschool) | [LinkedIn](https://www.linkedin.com/school/turingschool/) | [Website](https://turing.edu/)
-
-APIs:
-  - 
-
 Made with [Create React App](https://reactjs.org/docs/create-a-new-react-app.html)
 
 ## Planning
-- App development [planned and tracked]() using GitHub Projects
-- [Wireframe]() created using [Figma](https://www.figma.com/)
+- [GitHub Project Board](https://github.com/orgs/recycle-me-org/projects/1/views/9) 
+- [Figma Wireframe](https://www.figma.com/file/DK5kfMFWmnZirRvGUii9CZ/Wireframing-in-Figma?node-id=0%3A1)
 
 ## Wins
 ``Learning new technologies -- Apollo, GraphQL, and Google Maps``
@@ -82,13 +64,31 @@ Made with [Create React App](https://reactjs.org/docs/create-a-new-react-app.htm
 
 ``Successfully collaborating as a full-stack team``  
 
-- Cross-team collaboration.  Navigating terms of art that are specific to the front-end and back-end.  
+- Cross-team collaboration.  We placed a strong emphasis on communication between front-end and back-end teams in order to complete and deploy our project features.  
 
 ## Challenges and Improvements
-``Map``
+``Interactive Map``
 
-- Learning and implementing a map with markers in a 14 day sprint was challenging.  We began with MapBox, but pivoted to Google Maps mid-project.  
+- Learning and implementing a map with interactive markers in a 14 day sprint was challenging.  We began the project using MapBox, but ultimately made the decision to pivot to Google Maps.  While it was challenging to learn a new technology and create new data endpoints with little time, we came together as a team and devised a plan to implement Google Maps successfully.  
 
 ## Future Iterations
   - A map that shows international recycling locations.
-  - A quiz to test the users knowledge about which items can and cannot be recycled.  
+  - A quiz format to test the users knowledge about which items can and cannot be recycled.  
+ 
+## Contributors:
+### Frontend Team
+  - Raquel Hill | [GitHub](https://github.com/Raquelhill) | [LinkedIn](https://www.linkedin.com/in/raquelhill/)
+  - Sarah Rudy | [GitHub] (https://github.com/sarahrudy) | [LinkedIn](https://www.linkedin.com/in/rudysarah/)
+  - Anthony Iacono | [GitHub](https://github.com/anthony-iacono) | [LinkedIn](https://www.linkedin.com/in/anthony-iacono/)
+### Backend Team
+  - Michael Mattson | [GitHub](https://github.com/michaelpmattson) | [LinkedIn](https://www.linkedin.com/in/michael-p-mattson/)
+  - Henry Schmid | [GitHub](https://github.com/hschmid516) | [LinkedIn](https://www.linkedin.com/in/henry-schmid/)
+  - Ezzedine Alwafai | [GitHub](https://github.com/ealwafai) | [LinkedIn](https://www.linkedin.com/in/ealwafai/)
+### Project Managers
+  - Brian Zanti
+  - Dallas Slieker
+
+[Capstone Project Specification](https://mod4.turing.edu/projects/capstone/) provided by:
+
+Turing School of Software & Design
+[GitHub](https://github.com/turingschool) | [LinkedIn](https://www.linkedin.com/school/turingschool/) | [Website](https://turing.edu/)
