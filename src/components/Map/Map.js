@@ -53,7 +53,7 @@ const Map = () => {
                   <h1>{name}</h1>
                   <p>{placeDetails.result.formatted_address}</p>
                   <p>{placeDetails.result.formatted_phone_number}</p>
-                  <a target="_blank" href={placeDetails.result.website}>
+                  <a target="_blank" rel="noreferrer" href={placeDetails.result.website}>
                     {placeDetails.result.website}
                   </a>
                 </div>

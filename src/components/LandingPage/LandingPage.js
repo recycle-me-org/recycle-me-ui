@@ -1,8 +1,9 @@
-import './LandingPage.css';
 import landingPageBackground from '../../images/landing-page-background.jpg';
 import recycleInstructions from '../../images/recycle-instructions.png';
-const LandingPage = () => {
-  return (
+import './LandingPage.css';
+
+const LandingPage = () => (
+  <>
     <section className="landing-page-container">
       <div className="background-wash">
         <img
@@ -18,7 +19,12 @@ const LandingPage = () => {
         <h2 className="landing-page-h2">Bin less, recycle more.</h2>
       </div>
     </section>
-  );
-};
+    <img
+      src={recycleInstructions}
+      className="recycle-instructional-img"
+      alt="instructions on how to recycle"
+    />
+  </>
+);
 
 export default LandingPage;
