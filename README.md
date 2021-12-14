@@ -51,7 +51,7 @@ To run the app locally:
 ## Contributors
   - [Raquel Hill](https://github.com/Raquelhill)
   - [Sara Rudy](https://github.com/sarahrudy)
-  - [AnthonyIacono](https://github.com/anthony-iacono)
+  - [Anthony Iacono](https://github.com/anthony-iacono)
   - [Michael Mattson](https://github.com/michaelpmattson)
   - [Henry Schmid](https://github.com/hschmid516)
   - [Ezzedine Alwafai](https://github.com/ealwafai)
@@ -75,8 +75,15 @@ Made with [Create React App](https://reactjs.org/docs/create-a-new-react-app.htm
 - App development [planned and tracked]() using GitHub Projects
 - [Wireframe]() created using [Figma](https://www.figma.com/)
 
-## Challenges & Wins
-  - 
+## Wins
+``Learning new technologies -- Apollo, GraphQL, and Google Maps!``
+
+- Independently learning each technology through documentation, YouTube tutorials, the help of Project Manger's and team collaboration was a rewarding experience.   
+
+## Challenges and Improvements
+``Map``
+
+- Learning and implementing a map with markers in a 14 day sprint was challenging.  We began with MapBox, but pivoted to Google Maps mid-project.  
 
 ## Future Iterations
   - A map that shows international recycling locations.
