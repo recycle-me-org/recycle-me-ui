@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
+import App from '../src/components/App/App';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import './index.css';
-import App from '../src/components/App/App';
-import { BrowserRouter } from 'react-router-dom';
 
 import {
   ApolloClient,
@@ -16,19 +16,6 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
-// client.query({
-//   query: gql`
-//     query searchLocations {
-//       searchLocations(materialId: "60", location: "94549, United States") {
-//         name
-//         lat
-//         long
-//       }
-//     }
-//     `,
-//   })
-//     .then((result) => console.log(result));
-
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
@@ -37,5 +24,5 @@ ReactDOM.render(
       </ApolloProvider>
     </BrowserRouter>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById('root'),
 );

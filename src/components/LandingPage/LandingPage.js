@@ -1,5 +1,5 @@
-import landingPageBackground from '../../images/landing-page-background.jpg';
-import recycleInstructions from '../../images/recycle-instructions.png';
+import landingPageBackground from '../../assets/landing-page-background.jpg';
+import recycleInstructions from '../../assets/recycle-instructions.png';
 import './LandingPage.css';
 
 const LandingPage = () => (

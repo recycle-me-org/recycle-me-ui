@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import './Map.css';
 import placeDetails from '../../placeDetails.js';
+import './Map.css';
+
 import {
   GoogleMap,
   LoadScript,
@@ -11,13 +12,11 @@ import {
 require('dotenv').config();
 const mapsApiKey = process.env.REACT_APP_MAP_KEY;
 
-const markers = [
-  {
-    id: 1,
-    name: placeDetails.result.name,
-    position: placeDetails.result.geometry.location,
-  },
-];
+const markers = [{
+  id: 1,
+  name: placeDetails.result.name,
+  position: placeDetails.result.geometry.location,
+}];
 
 const containerStyle = {
   width: '100%',
