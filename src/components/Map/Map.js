@@ -20,8 +20,8 @@ const markers = [
 ];
 
 const containerStyle = {
-  width: '800px',
-  height: '400px',
+  width: '100%',
+  height: '600px',
 };
 
 const Map = () => {
