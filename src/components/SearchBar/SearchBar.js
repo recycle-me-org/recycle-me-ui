@@ -3,7 +3,7 @@ import { gql, useLazyQuery } from '@apollo/client';
 import MaterialsDropdown from '../MaterialsDropdown/MaterialsDropdown';
 import './SearchBar.css';
 
-const SearchBar = () => {
+const SearchBar = ({ updatePlaceIds }) => {
   const [materialId, setMaterialId] = useState('');
   const [location, setLocation] = useState('');
 
@@ -26,8 +26,9 @@ const SearchBar = () => {
   
   const handleSubmit = (e) => {
     e.preventDefault();
-    getPlaceIds({ variables: { materialId: materialId, location: `${location}, United States` }})
-  }
+    const placeIds = getPlaceIds({ variables: { materialId: materialId, location: `${location}, United States` }});
+    updatePlaceIds(placeIds);
+  };
 
   return (
     <>
