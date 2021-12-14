@@ -2,9 +2,8 @@
   display: flex;
   justify-content: space-around;
   width: 100%;
-  padding: 20px;
+  padding: 40px;
   background-color: #efefef;
-  margin-top: 20px;
 }
 
 .search-bar__input-container {
