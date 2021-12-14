@@ -4,6 +4,7 @@
   min-height: auto;
   background-color: rgb(0, 0, 0);
   z-index: 5;
+  margin-bottom: 80px;
 }
 
 .background-wash {

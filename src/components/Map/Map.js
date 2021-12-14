@@ -21,7 +21,7 @@ const markers = [
 
 const containerStyle = {
   width: '100%',
-  height: '600px',
+  height: '700px',
 };
 
 const Map = () => {
