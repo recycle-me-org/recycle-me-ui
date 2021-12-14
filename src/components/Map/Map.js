@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import placeDetails from '../../placeDetails.js';
 import './Map.css';
-
 import {
   GoogleMap,
   LoadScript,
@@ -23,7 +22,7 @@ const containerStyle = {
   height: '700px',
 };
 
-const Map = () => {
+const Map = ({ placeIds }) => {
   const [activeMarker, setActiveMarker] = useState(null);
 
   const handleActiveMarker = (marker) => {

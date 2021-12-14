@@ -5,11 +5,7 @@ import App from '../src/components/App/App';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import './index.css';
 
-import {
-  ApolloClient,
-  InMemoryCache,
-  ApolloProvider,
-} from '@apollo/client';
+import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 
 const client = new ApolloClient({
   uri: 'https://recycle-me-api.herokuapp.com/graphql',
