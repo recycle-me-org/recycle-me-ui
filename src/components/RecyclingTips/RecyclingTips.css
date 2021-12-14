@@ -1,0 +1,19 @@
+.recycling-tips-container {
+  width: 66%;
+}
+
+.what-to-recycle,
+.tips-for-recycling {
+  color: #78a22f;
+  text-transform: uppercase;
+  font-size: 20px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+.recycle-item {
+  font-style: italic;
+  font-weight: bolder;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
