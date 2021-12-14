@@ -1,4 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
+import placeDetails from '../../placeDetails.js';
+import './Map.css';
+
 import {
   GoogleMap,
   LoadScript,
@@ -6,44 +9,60 @@ import {
   Marker,
 } from '@react-google-maps/api';
 
+require('dotenv').config();
+const mapsApiKey = process.env.REACT_APP_MAP_KEY;
+
+const markers = [{
+  id: 1,
+  name: placeDetails.result.name,
+  position: placeDetails.result.geometry.location,
+}];
+
 const containerStyle = {
-  width: '800px',
-  height: '400px',
+  width: '100%',
+  height: '700px',
 };
 
-const center = {
-  lat: 37.772,
-  lng: -122.214,
-};
+const Map = () => {
+  const [activeMarker, setActiveMarker] = useState(null);
 
-const position = {
-  lat: 37.772,
-  lng: -122.214,
-};
-const divStyle = {
-  background: `white`,
-  border: `1px solid #ccc`,
-  padding: 15,
-};
+  const handleActiveMarker = (marker) => {
+    if (marker === activeMarker) {
+      return;
+    }
+    setActiveMarker(marker);
+  };
 
-const onLoad = (infoWindow) => {
-  console.log('infoWindow: ', infoWindow);
-};
-
-function RecyclingLocationMap() {
   return (
-    <LoadScript googleMapsApiKey="AIzaSyAU7oHPj92fxgzUEeaoIEv4WqQYOBWxOJ8">
-      <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={10}>
-        <Marker position={position} />
-        <InfoWindow onLoad={onLoad} position={position}>
-          <div style={divStyle}>
-            <h1>Name</h1>
-            <h2>Address</h2>
-          </div>
-        </InfoWindow>
+    <LoadScript googleMapsApiKey={mapsApiKey}>
+      <GoogleMap
+        mapContainerStyle={containerStyle}
+        center={placeDetails.result.geometry.location}
+        zoom={12}
+      >
+        {markers.map(({ id, name, position }) => (
+          <Marker
+            key={id}
+            position={position}
+            onClick={() => handleActiveMarker(id)}
+          >
+            {activeMarker === id ? (
+              <InfoWindow onCloseClick={() => setActiveMarker(null)}>
+                <div className="info-window">
+                  <h1>{name}</h1>
+                  <p>{placeDetails.result.formatted_address}</p>
+                  <p>{placeDetails.result.formatted_phone_number}</p>
+                  <a target="_blank" rel="noreferrer" href={placeDetails.result.website}>
+                    {placeDetails.result.website}
+                  </a>
+                </div>
+              </InfoWindow>
+            ) : null}
+          </Marker>
+        ))}
       </GoogleMap>
     </LoadScript>
   );
-}
+};
 
-export default React.memo(RecyclingLocationMap);
+export default React.memo(Map);

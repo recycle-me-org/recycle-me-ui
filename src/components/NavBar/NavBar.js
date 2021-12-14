@@ -1,9 +1,8 @@
 import { Link } from 'react-router-dom';
+import recycleIcon from '../../assets/recycle.png';
 import './NavBar.css';
-import recycleIcon from '../../images/recycle.png';
 
-const NavBar = () => {
-  return (
+const NavBar = () => (
     <header className="nav-container">
       <div className="nav-icon-and-h1">
         <img src={recycleIcon} className="recycle-icon" alt="recycle" />
@@ -18,6 +17,5 @@ const NavBar = () => {
       </div>
     </header>
   );
-};
 
 export default NavBar;
