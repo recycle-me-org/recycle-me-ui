@@ -50,11 +50,11 @@ To run the app locally:
 
 ## Contributors
   - [Raquel Hill](https://github.com/Raquelhill)
-  -[Sara Rudy](https://github.com/sarahrudy)
-  -[AnthonyIacono](https://github.com/anthony-iacono)
-  -[Michael Mattson](https://github.com/michaelpmattson)
-  -[Henry Schmid](https://github.com/hschmid516)
-  -[Ezzedine Alwafai](https://github.com/ealwafai)
+  - [Sara Rudy](https://github.com/sarahrudy)
+  - [AnthonyIacono](https://github.com/anthony-iacono)
+  - [Michael Mattson](https://github.com/michaelpmattson)
+  - [Henry Schmid](https://github.com/hschmid516)
+  - [Ezzedine Alwafai](https://github.com/ealwafai)
   
   **Project Manager**
 
