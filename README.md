@@ -1,5 +1,5 @@
 # Recycle Me
-*tagline here*
+/Users/raquelhill/recycle-me-ui/src/images/recycle.png
 
 ## Abstract
 
