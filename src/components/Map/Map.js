@@ -33,7 +33,7 @@ const Map = () => {
     }
     setActiveMarker(marker);
   };
-  console.log('marker', markers);
+  // console.log('marker', markers);
 
   return (
     <LoadScript googleMapsApiKey={mapsApiKey}>
