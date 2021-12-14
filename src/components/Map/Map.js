@@ -53,7 +53,9 @@ const Map = () => {
                   <h1>{name}</h1>
                   <p>{placeDetails.result.formatted_address}</p>
                   <p>{placeDetails.result.formatted_phone_number}</p>
-                  <p>{placeDetails.result.website}</p>
+                  <a target="_blank" href={placeDetails.result.website}>
+                    {placeDetails.result.website}
+                  </a>
                 </div>
               </InfoWindow>
             ) : null}
