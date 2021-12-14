@@ -1,5 +1,6 @@
 .recycling-tips-container {
-  width: 66%;
+  width: 90%;
+  margin: 40px;
 }
 
 .what-to-recycle,
@@ -7,8 +8,18 @@
   color: #78a22f;
   text-transform: uppercase;
   font-size: 20px;
-  margin-top: 8px;
-  margin-bottom: 8px;
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+.what-to-recycle-styling {
+  display: flex;
+  flex-direction: row;
+}
+
+.recycle-item-styling {
+  display: flex;
+  flex-direction: column;
 }
 
 .recycle-item {
@@ -16,4 +27,13 @@
   font-weight: bolder;
   margin-top: 8px;
   margin-bottom: 8px;
+}
+
+.recycle-facts {
+  width: 90%;
+  margin-bottom: 15px;
+}
+
+.recycle-tip {
+  margin: 8px;
 }
