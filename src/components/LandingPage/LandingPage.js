@@ -24,6 +24,9 @@ const LandingPage = () => (
       className="recycle-instructional-img"
       alt="instructions on how to recycle"
     />
+    <div className="landing-page-footer">
+      Need help recycling? Search for a recycling solution below
+    </div>
   </>
 );
 

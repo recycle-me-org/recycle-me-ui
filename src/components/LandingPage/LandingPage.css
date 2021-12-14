@@ -48,3 +48,12 @@
   height: 700px;
   margin: 50px;
 }
+.landing-page-footer {
+  background-color: #50606a;
+  font-size: 20px;
+  text-transform: uppercase;
+  color: white;
+  padding: 20px;
+  margin-bottom: 40px;
+  border-radius: 3px;
+}
