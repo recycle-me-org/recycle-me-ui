@@ -1,79 +1,60 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import { gql, useLazyQuery } from '@apollo/client';
+import MaterialsDropdown from '../MaterialsDropdown/MaterialsDropdown';
 import './SearchBar.css';
 
-const SearchBar = () => {
-  const [zip, setZip] = useState('');
-  const [materials, setMaterials] = useState([]);
-  const [validZip, setValidZip] = useState(true);
-  const [status, setStatus] = useState('');
+const SearchBar = ({ updatePlaceIds }) => {
+  const [materialId, setMaterialId] = useState('');
+  const [location, setLocation] = useState('');
 
-  useEffect(() => {
-    const zipRegex = new RegExp(/^\d{5}$/)
-    const timerId = setTimeout(() => {
-      if (zipRegex.test(zip) || !zip.length) {
-        setValidZip(true);
-      } else {
-        setValidZip(false);
+  const updateMaterialId = (id) => setMaterialId(id);
+
+  const GET_PLACE_IDS = gql`
+    query searchLocations($materialId: String!, $location: String!) {
+      searchLocations(materialId: $materialId, location: $location) {
+        placeId
       }
-    }, 500)
-
-    return () => {
-      clearTimeout(timerId);
     }
-  }, [zip])
+  `;
 
+  const [getPlaceIds, { loading, error, data }] = useLazyQuery(GET_PLACE_IDS);
+  
   const handleChange = (e) => {
-    const input = e.target;
-    if (input.name === 'zip') {
-      setZip(input.value);
-    }
-    if (input.name === 'materials') {
-      setStatus('')
-      setMaterials(input.value);
-    }
-  }
-
+    const locationInput = e.target.value;
+    setLocation(locationInput);
+  };
+  
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!materials.length) {
-      setStatus('materials error');
-    }
-    if (!zip.length) {
-      setValidZip(false);
-    }
-  }
+    const placeIds = getPlaceIds({ variables: { materialId: materialId, location: `${location}, United States` }});
+    updatePlaceIds(placeIds);
+  };
 
   return (
-    <form className="search-bar" onSubmit={ (e) => handleSubmit(e) }>
-      <div className="search-bar__input-container search-bar__input-container--zip">
-        <input 
-          className="search-bar__input"
-          type="text"
-          name="zip"
-          value={ zip }
-          aria-label="ZIP Code"
-          placeholder="ZIP Code"
-          onChange={ (e) => handleChange(e) }
-        >
-        </input>
-        { !validZip && <p className="error-message">Invalid ZIP code</p> }
-      </div> 
-      <div className="search-bar__input-container search-bar__input-container--materials">
-        <input
-          className="search-bar__input"
-          type="text"
-          name="materials"
-          value={ materials }
-          aria-label="Material"
-          placeholder="Search for a material (plastic bottle, glass, etc.)"
-          onChange={ (e) => handleChange(e) }
-        >
-        </input>
-        { status === 'materials error' && <p className="error-message">Invalid materials</p> }
-      </div>
-      <button className="search-bar__button">Search</button>
-    </form>
-  )
+    <>
+      { loading && <p>Loading...</p> }
+      { error && <p>{ error.message }</p> }
+      { data && console.log('data: ', data) }
+      <form onSubmit={ (e) => handleSubmit(e) } className="search-bar" >
+        <MaterialsDropdown updateMaterialId={ updateMaterialId } />
+        <div className="search-bar__input-container search-bar__input-container--zip">
+          <input
+            className="search-bar__input"
+            type="text"
+            name="location"
+            value={location}
+            aria-label="location"
+            placeholder="location"
+            onChange={ (e) => handleChange(e) }
+          >
+          </input>
+        </div>
+        <button className="search-bar__button">
+          Search
+        </button>
+      </form>
+    </>
+  );
 };
 
 export default SearchBar;
