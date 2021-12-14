@@ -1,7 +1,9 @@
 import { gql, useQuery } from '@apollo/client'
 import Select from 'react-select';
 
-const MaterialsDropdown = ({ client }) => {
+const MaterialsDropdown = ({ updateMaterialId }) => {
+
+  const handleChange = (e) => updateMaterialId(e.id);
 
   const GET_MATERIALS = gql`
     query materials {
@@ -24,7 +26,7 @@ const MaterialsDropdown = ({ client }) => {
   }));
 
   return (
-    <Select name="materials" options={ materialsOptions } />
+    <Select onChange={ (e) => handleChange(e) } name="materials" options={ materialsOptions } />
   );
 };
 
