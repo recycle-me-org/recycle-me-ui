@@ -78,7 +78,7 @@ Made with [Create React App](https://reactjs.org/docs/create-a-new-react-app.htm
 ## Contributors:
 ### Frontend Team
   - Raquel Hill | [GitHub](https://github.com/Raquelhill) | [LinkedIn](https://www.linkedin.com/in/raquelhill/)
-  - Sarah Rudy | [GitHub] (https://github.com/sarahrudy) | [LinkedIn](https://www.linkedin.com/in/rudysarah/)
+  - Sarah Rudy | [GitHub](https://github.com/sarahrudy) | [LinkedIn](https://www.linkedin.com/in/rudysarah/)
   - Anthony Iacono | [GitHub](https://github.com/anthony-iacono) | [LinkedIn](https://www.linkedin.com/in/anthony-iacono/)
 ### Backend Team
   - Michael Mattson | [GitHub](https://github.com/michaelpmattson) | [LinkedIn](https://www.linkedin.com/in/michael-p-mattson/)
