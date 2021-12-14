@@ -1,16 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import Select from 'react-select';
 import './SearchBar.css';
-import { gql } from '@apollo/client';
+import { gql, useQuery } from '@apollo/client';
+import { placeIdQuery } from '../../queries/SearchLocations'
 
 const SearchBar = ({ client }) => {
-  const [zip, setZip] = useState('80031');
+  const [location, setLocation] = useState('');
   const [materials, setMaterials] = useState([]);
   const [validZip, setValidZip] = useState(true);
   const [status, setStatus] = useState(''); // leave this for now, but we may delete later
   const [materialsOptions, setMaterialsOptions] = useState([]);
-  const [singleMaterial, setSingleMaterial] = useState('60');
+  const [materialId, setMaterialId] = useState('');
   const [locations, setLocations] = useState([]);
+  const [placeId, setPlaceId] = useState('')
 
   useEffect(() => {
     client.query({
@@ -32,7 +34,7 @@ const SearchBar = ({ client }) => {
   useEffect(() => {
     const zipRegex = new RegExp(/^\d{5}$/)
     const timerId = setTimeout(() => {
-      if (zipRegex.test(zip) || !zip.length) {
+      if (zipRegex.test(location) || !location.length) {
         setValidZip(true);
       } else {
         setValidZip(false);
@@ -42,12 +44,12 @@ const SearchBar = ({ client }) => {
     return () => {
       clearTimeout(timerId);
     }
-  }, [zip])
+  }, [location])
 
   const handleChange = (e) => {
     const input = e.target;
-    if (input.name === 'zip') {
-      setZip(input.value);
+    if (input.name === 'location') {
+      setLocation(input.value);
     }
     if (input.name === 'materials') {
       setStatus('')
@@ -60,7 +62,7 @@ const SearchBar = ({ client }) => {
     if (!materials.length) {
       setStatus('materials error');
     }
-    if (!zip.length) {
+    if (!location.length) {
       setValidZip(false);
     }
   }
@@ -77,38 +79,46 @@ useEffect(() => {
   setMaterialsOptions(materialsArray)
 }, [materials]);
 
-const getLocations = () => {
-  // const locationData = `80031, United States`
-  console.log('singleMaterial: ', singleMaterial);
-  console.log('zip: ', zip)
-  client.query({
-    query: gql`
-      query searchLocations($singleMaterial: String!, $zip: String!) {
-        searchLocations(materialId: $singleMaterial, location: $zip) {
-          name
-          lat
-          long
-          hours
-          phone
-          url
-          distance
-          address
-        }
-      }
-    `,
-  }).then(data => {
-    console.log(data);
-    console.log(materialsOptions)
-    // setLocations(data.data.materials)
-  })
-}
+
+const { data, loading, error } = useQuery(placeIdQuery, {
+    variables: {
+      materialId: materialId, 
+      location: location
+    }
+  }
+);
+
+
+
+// const getLocations = () => {
+//   const locationData = `80031, United States`
+//   console.log('materialId: ', materialId);
+//   console.log('location: ', location)
+//   client.query({
+//     query: gql`
+//       query searchLocations($materialId: String!, $location: String!) {
+//         searchLocations(materialId: parseInt($materialId), location: $location) {
+//           placeId
+//         }
+//       }
+//     `,
+//   }).then(data => {
+//     console.log(data);
+//     console.log(materialsOptions)
+//     // setLocations(data.data.materials)
+//   })
+// }
 
 const handleClick = (e) => {
   e.preventDefault();
   if (validZip && materials) {
-    getLocations();
+    setMaterialId("60")
+    setLocation("80021")
   }
 }
+console.log(data)
+console.log(loading)
+console.log(error)
 
   return (
     <form className="search-bar" onSubmit={ (e) => handleSubmit(e) }>
@@ -118,7 +128,7 @@ const handleClick = (e) => {
           className="search-bar__input"
           type="text"
           name="zip"
-          value={ zip }
+          value={ location }
           aria-label="ZIP Code"
           placeholder="ZIP Code"
           onChange={ (e) => handleChange(e) }
