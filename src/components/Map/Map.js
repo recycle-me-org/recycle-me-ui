@@ -56,10 +56,15 @@ const Map = ({ locationDetails }) => {
             {activeMarker === id ? (
               <InfoWindow onCloseClick={() => setActiveMarker(null)}>
                 <div className="info-window">
-                  <h1>{name}</h1>
-                  <p>{address}</p>
-                  <p>{phone}</p>
-                  <a target="_blank" rel="noreferrer" href={url}>
+                  <h1 className="business-name">{name}</h1>
+                  <p className="business-info">{address}</p>
+                  <p className="business-info">{phone}</p>
+                  <a
+                    className="business-info"
+                    target="_blank"
+                    rel="noreferrer"
+                    href={url}
+                  >
                     {url}
                   </a>
                 </div>
@@ -73,49 +78,3 @@ const Map = ({ locationDetails }) => {
 };
 
 export default React.memo(Map);
-
-// let placesData
-
-// Promise.all(placeIds.map(({ placeId }) => {
-//   console.log('placeId: ', placeId)
-//   return fetch(`https://maps.googleapis.com/maps/api/place/details/json?place_id=${placeId}`)
-//     .then(res => {
-//       console.log('res: ', res);
-//       if (res.ok) {
-//         return res.text();
-//       } else {
-//         throw Error('Google Places API responded with an error');
-//       }
-//     })
-//     .then(data => {
-//       console.log('apiData: ', data);
-//       return data ? JSON.parse(data) : {}
-//     })
-// }))
-//   .then(placesResults => {
-//     placesData = placesResults
-//     console.log('placesData: ', placesData);
-//   })
-
-// fetch(`https://maps.googleapis.com/maps/api/place/details/json?fields=name%2Crating%2Cformatted_phone_number&place_id=ChIJN1t_tDeuEmsRUsoyG83frY4&key=AIzaSyCgPSzJ7PynNjd_zw7rd4hMOXaJQxhXQdQ`,
-//   { mode: 'no-cors' }
-// )
-//   .then(res => res.json())
-//   .then(data => console.log('data: ', data))
-
-// var axios = require('axios');
-
-// var config = {
-//   method: 'get',
-//   mode: 'no-cors',
-//   url: 'https://maps.googleapis.com/maps/api/place/details/json?place_id=ChIJN1t_tDeuEmsRUsoyG83frY4&fields=name%2Crating%2Cformatted_phone_number&key=AIzaSyCgPSzJ7PynNjd_zw7rd4hMOXaJQxhXQdQ',
-//   headers: { }
-// };
-
-// axios(config)
-// .then(function (response) {
-//   console.log(JSON.stringify(response.data));
-// })
-// .catch(function (error) {
-//   console.log(error);
-// });
