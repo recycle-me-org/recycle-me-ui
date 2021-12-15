@@ -13,7 +13,9 @@ const NavBar = () => (
       <div className="nav-links">
         <p className="nav-search">Search for Item</p>
         <p className="nav-test">Test Your Knowledge</p>
-        <p className="nav-creators">Creators</p>
+        <Link to="/creators">
+          <p className="nav-creators">Creators</p>
+        </Link>
       </div>
     </header>
   );
