@@ -65,7 +65,7 @@ const RecyclingTips = () => (
       </div>
     </div>
     <div className="tips-for-recycling-styling">
-      <h1 className="tips-for-recycling">Tips For Recycling</h1>
+      <h1 className="tips-for-recycling">Tips for Recycling</h1>
       <p className="recycle-tip">
         • Make sure it’s clean! One single dirty product can contaminate an
         entire bale. It can ultimately cause recyclable items to get redirected
