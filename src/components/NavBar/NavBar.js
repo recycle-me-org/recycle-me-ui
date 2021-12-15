@@ -11,11 +11,13 @@ const NavBar = () => (
       </Link>
     </div>
     <div className="nav-links">
-      <p className="nav-search">Search for Item</p>
-      <p className="nav-test">Tips for Recycling</p>
-      <p className="nav-creators">Creators</p>
+      <p className="nav-search">Recycle Item</p>
+      <p className="nav-test">Articles</p>
+      <Link to="/creators">
+        <p className="nav-creators">Creators</p>
+      </Link>
     </div>
   </header>
-);
+  );
 
 export default NavBar;

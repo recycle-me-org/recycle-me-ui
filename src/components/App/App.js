@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Routes, Route } from 'react-router-dom';
 import NavBar from '../NavBar/NavBar';
 import LandingPage from '../LandingPage/LandingPage';
 import Map from '../Map/Map';
@@ -6,6 +7,9 @@ import RecyclingTips from '../RecyclingTips/RecyclingTips';
 import SearchBar from '../SearchBar/SearchBar';
 import Footer from '../Footer/Footer';
 import './App.css';
+import Creators from '../Creators/Creators'
+
+// const Creators = React.lazy(() => import("./pages/Creators"));
 
 const App = () => {
   const [placeIds, setPlaceIds] = useState([]);
@@ -18,10 +22,21 @@ const App = () => {
   return (
     <main className="app">
       <NavBar />
-      <LandingPage />
-      <Map placeIds={placeIds} />
-      <SearchBar updatePlaceIds={updatePlaceIds} />
-      <RecyclingTips />
+      <Routes>
+        <Route 
+          path="/"
+          element={<>
+            <LandingPage />
+            <Map placeIds={ placeIds } />
+            <SearchBar updatePlaceIds={ updatePlaceIds } />
+          </>} 
+        />
+        <Route 
+          path="creators" 
+          element={<Creators />} 
+        /> 
+        {/* <Route path="*" element={<NoMatch />} /> */}
+      </Routes>
       <Footer />
     </main>
   );
