@@ -18,25 +18,30 @@ const SearchBar = ({ updatePlaceIds }) => {
   `;
 
   const [getPlaceIds, { loading, error, data }] = useLazyQuery(GET_PLACE_IDS);
-  
+
   const handleChange = (e) => {
     const locationInput = e.target.value;
     setLocation(locationInput);
   };
-  
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    const placeIds = getPlaceIds({ variables: { materialId: materialId, location: `${location}, United States` }});
+    const placeIds = getPlaceIds({
+      variables: {
+        materialId: materialId,
+        location: `${location}, United States`,
+      },
+    });
     updatePlaceIds(placeIds);
   };
 
   return (
     <>
-      { loading && <p>Loading...</p> }
-      { error && <p>{ error.message }</p> }
-      { data && console.log('data: ', data) }
-      <form onSubmit={ (e) => handleSubmit(e) } className="search-bar" >
-        <MaterialsDropdown updateMaterialId={ updateMaterialId } />
+      {loading && <p>Loading...</p>}
+      {error && <p>{error.message}</p>}
+      {data && console.log('data: ', data)}
+      <form onSubmit={(e) => handleSubmit(e)} className="search-bar">
+        <MaterialsDropdown updateMaterialId={updateMaterialId} />
         <div className="search-bar__input-container search-bar__input-container--zip">
           <input
             className="search-bar__input"
@@ -45,13 +50,10 @@ const SearchBar = ({ updatePlaceIds }) => {
             value={location}
             aria-label="location"
             placeholder="location"
-            onChange={ (e) => handleChange(e) }
-          >
-          </input>
+            onChange={(e) => handleChange(e)}
+          ></input>
         </div>
-        <button className="search-bar__button">
-          Search
-        </button>
+        <button className="search-bar__button">Search</button>
       </form>
     </>
   );

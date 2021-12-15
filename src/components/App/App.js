@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import NavBar from '../NavBar/NavBar';
 import LandingPage from '../LandingPage/LandingPage';
 import Map from '../Map/Map';
+import RecyclingTips from '../RecyclingTips/RecyclingTips';
 import SearchBar from '../SearchBar/SearchBar';
 import Footer from '../Footer/Footer';
 import './App.css';
@@ -16,7 +17,7 @@ const App = () => {
   const updatePlaceIds = (newPlaceIds) => {
     setPlaceIds(newPlaceIds);
     console.log('updatePlaceIds');
-  }
+  };
 
   return (
     <main className="app">
@@ -39,6 +40,6 @@ const App = () => {
       <Footer />
     </main>
   );
-}
+};
 
 export default App;
