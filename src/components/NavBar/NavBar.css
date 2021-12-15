@@ -13,7 +13,7 @@
 
 .nav-h1 {
   color: #237018;
-  font-size: 3.5vw;
+  font-size: 40px;
   text-decoration: none;
 }
 
@@ -26,7 +26,7 @@
 .nav-links {
   display: flex;
   flex-direction: row;
-  font-size: 1.5vw;
+  font-size: 18px;
   color: #42cbf5;
 }
 
