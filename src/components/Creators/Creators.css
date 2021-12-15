@@ -1,0 +1,68 @@
+.creators-page {
+  background-color: #f5f7f6;
+  color: #4d4d4d;
+  font-family: inherit;
+}
+
+.meet-the-team {
+  display: flex;
+  justify-content: center;
+  font-size: 30px;
+  padding: 20px 0 20px 0;
+}
+
+.frontend-and-backend-containers {
+  display: flex;
+  flex-direction: row;
+}
+
+.frontend-container,
+.backend-container {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+.name {
+  font-size: 25px;
+  margin-right: auto;
+}
+
+.linked-in,
+.git-hub {
+  width: 25px;
+  height: 25px;
+  margin: 5px;
+}
+
+.member-container {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid #252626;
+  background: white;
+  margin: 25px;
+  padding: 25px;
+  height: 650px;
+}
+
+.frontend,
+.backend {
+  display: flex;
+  justify-content: center;
+  font-size: 30px;
+}
+
+.profile-pic {
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.blurb {
+  margin-top: 15px;
+}
+
+
+
+
+
