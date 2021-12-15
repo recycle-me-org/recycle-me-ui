@@ -24,7 +24,7 @@
 }
 
 .name {
-  font-size: 25px;
+  font-size: 20px;
   margin-right: auto;
 }
 
@@ -42,7 +42,7 @@
   background: white;
   margin: 25px;
   padding: 25px;
-  height: 650px;
+  height: 700px;
 }
 
 .frontend,
@@ -59,7 +59,7 @@
 }
 
 .blurb {
-  margin-top: 15px;
+  margin-top: 10px;
 }
 
 

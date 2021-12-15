@@ -4,9 +4,9 @@ import gitHub from '../../assets/github.png';
 import sarah from '../../assets/sarah.png';
 import raquel from '../../assets/raquel.JPG';
 import anthony from '../../assets/anthony.jpeg';
-// import michael from '../../assets/michael.png';
-// import henry from '../../assets/henry.png';
-// import ezze from '../../assets/ezze.png';
+import michael from '../../assets/michael.jpg';
+import henry from '../../assets/henry.png';
+import ezze from '../../assets/ezze.png';
 
 const Creators = () => {
   return (
@@ -18,8 +18,12 @@ const Creators = () => {
           <article className="member-container">
             <div>
               <p className="name">SARAH RUDY</p>
-              <img className="linked-in" src={ linkedIn } alt=""/>
-              <img className="git-hub" src={ gitHub } alt=""/>
+              <a href="https://www.linkedin.com/in/rudysarah/">
+                <img className="linked-in" src={ linkedIn } alt=""/>
+              </a>
+              <a href="https://github.com/sarahrudy">
+                <img className="git-hub" src={ gitHub } alt=""/>
+              </a>
             </div>
             <img className="profile-pic" src={ sarah } alt=""/>
             <p className="blurb">Before Turing, I was working in oil & gas as a Landman. When Covid hit, I had a fortunate opportunity to reevaluate what I really wanted to do. I've always been inspired by technology and how it's changing the world we live in, so I decided to pursue software development. I am super curious by nature with a passion for innovation and challenging the status quo. I'm especially passionate about the potential technology has to better human lives. Connect with me on LinkedIn so we can a get a conversation started!</p>
@@ -27,8 +31,12 @@ const Creators = () => {
           <article className="member-container">
             <div>
               <p className="name">RAQUEL HILL</p>
-              <img className="linked-in" src={ linkedIn } alt=""/>
-              <img className="git-hub" src={ gitHub } alt=""/>
+              <a href="https://www.linkedin.com/in/raquelhill/">
+                <img className="linked-in" src={ linkedIn } alt=""/>
+              </a>
+              <a href="https://github.com/Raquelhill">
+                <img className="git-hub" src={ gitHub } alt=""/>
+              </a>
             </div>
             <img className="profile-pic" src={ raquel } alt=""></img>
             <p className="blurb">I'm a driven and self-motivated entrepreneur turned Frontend Software Developer. My passions in life are my family and work. I try to think outside of the box because I believe that innovation is driven by creativity. My primary goal in life is to better myself through continuous learning and building on my successes. The world of software development is ever-changing and fulfills my ongoing quest for knowledge, creativity, and problem solving.</p>
@@ -36,8 +44,12 @@ const Creators = () => {
           <article className="member-container">
             <div>
               <p className="name">ANTHONY IACONO</p>
-              <img className="linked-in" src={ linkedIn } alt=""/>
-              <img className="git-hub" src={ gitHub } alt=""/>
+              <a href="https://www.linkedin.com/in/anthony-iacono/">
+                <img className="linked-in" src={ linkedIn } alt=""/>
+              </a>
+              <a href="https://github.com/anthony-iacono">
+                <img className="git-hub" src={ gitHub } alt=""/>
+              </a>
             </div>
             <img className="profile-pic" src={ anthony } alt=""></img>
             <p className="blurb">From deployment overseas to competition dance floors, the same curiosity and love of learning that defined my service as a soldier and teacher now fuel my creative work building impactful apps as a software engineer.</p>
@@ -48,29 +60,41 @@ const Creators = () => {
           <article className="member-container">
             <div>
               <p className="name">MICHAEL MATTSON</p>
-              <img className="linked-in" src={ linkedIn } alt=""/>
-              <img className="git-hub" src={ gitHub } alt=""/>
+              <a href="https://www.linkedin.com/in/michael-p-mattson/">
+                <img className="linked-in" src={ linkedIn } alt=""/>
+              </a>
+              <a href="https://github.com/michaelpmattson">
+                <img className="git-hub" src={ gitHub } alt=""/>
+              </a>
             </div>
-            {/* <img className="profile-pic" src={ michael } alt=""/> */}
-            <p className="blurb"></p>
+            <img className="profile-pic" src={ michael } alt=""/>
+            <p className="blurb">I’m a Software Engineer with a background in travel operations and international education. I'm driven by a desire to solve problems. Programming is the perfect field for me since it's a requirement to constantly learn new things. I spent 5 years abroad as an educator, which eventually led me to the travel industry where I've been able to flex analytical skills as part of a global operations team. Through both of these roles, it’s been a pleasure developing experience that reflects my sense of empathy and cultural competence. As a developer and in general, I'm attracted to purpose-driven work, especially Green Tech and sustainability focused roles.</p>
           </article>
           <article className="member-container">
             <div>
               <p className="name">HENRY SCHMID</p>
-              <img className="linked-in" src={ linkedIn } alt=""/>
-              <img className="git-hub" src={ gitHub } alt=""/>
+              <a href="https://www.linkedin.com/in/henry-schmid/">
+                <img className="linked-in" src={ linkedIn } alt=""/>
+              </a>
+              <a href="https://github.com/hschmid516">
+                <img className="git-hub" src={ gitHub } alt=""/>
+              </a>
             </div>
-            {/* <img className="profile-pic" src={ henry } alt=""></img> */}
-            <p className="blurb"></p>
+            <img className="profile-pic" src={ henry } alt=""></img>
+            <p className="blurb">After 10 years in the environmental consulting and GIS mapping fields, I decided it was time to take a huge leap and become a software developer. While I enjoyed my previous roles and gained invaluable technical and interpersonal experience, the creativity and logical problem solving required was not quite on par with the potential I knew I had. Taking this leap was the best decision of my entire life, and I look forward to making an immediate impact for a mission-driven company.</p>
           </article>
           <article className="member-container">
             <div>
               <p className="name">EZZEDINE ALWAFAI </p>
-              <img className="linked-in" src={ linkedIn } alt=""/>
-              <img className="git-hub" src={ gitHub } alt=""/>
+              <a href="https://www.linkedin.com/in/ealwafai/">
+                <img className="linked-in" src={ linkedIn } alt=""/>
+              </a>
+              <a href="https://github.com/ealwafai">
+                <img className="git-hub" src={ gitHub } alt=""/>
+              </a>
             </div>
-            {/* <img className="profile-pic" src={ ezze } alt=""></img> */}
-            <p className="blurb"></p>
+            <img className="profile-pic" src={ ezze } alt=""></img>
+            <p className="blurb">I am a software developer with a background in affordable lending, consumer finance, and corporate credit risk analysis. My curiosity to learn how things work under the hood has led me to pursue an education in back-end development at Turing School of Software and Design. Throughout my career, I’ve experienced numerous situations that required tackling complex problems by analyzing top priorities and working with diverse teams or individually towards our shared goal. I look forward to applying my skills to a purpose-driven, people-focused workplace while also expanding my technical proficiency to other coding languages as well. Please feel free to reach out to me here on LinkedIn or via email.</p>
           </article>
         </div>
       </div>
