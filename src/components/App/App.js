@@ -13,8 +13,8 @@ import NoMatch from '../NoMatch/NoMatch';
 const App = () => {
   const [locationDetails, setlocationDetails] = useState([]);
 
-  const updateLocationDetails = (newlocationDetails) => {
-    setlocationDetails(newlocationDetails);
+  const updateLocationDetails = (newLocationDetails) => {
+    setlocationDetails(newLocationDetails);
   };
 
   return (

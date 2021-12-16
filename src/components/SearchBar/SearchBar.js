@@ -24,24 +24,24 @@ const SearchBar = ({ updateLocationDetails }) => {
     }
   `;
 
-  const [getLocationDetails, { loading, error, data }] =
-    useLazyQuery(GET_LOCATION_DETAILS);
+  const [getLocationDetails, { loading, error }] = useLazyQuery(
+    GET_LOCATION_DETAILS
+  );
 
   const handleChange = (e) => {
     const locationInput = e.target.value;
     setLocation(locationInput);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const newLocationDetails = getLocationDetails({
+    const newLocationDetails = await getLocationDetails({
       variables: {
         materialId: materialId,
         location: `${location}, United States`,
       },
     });
     updateLocationDetails(newLocationDetails);
-    console.log(newLocationDetails);
   };
 
   return (

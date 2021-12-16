@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import mockLocationDetails from '../../placeDetails';
 import './Map.css';
 import {
   GoogleMap,
@@ -17,21 +16,27 @@ const containerStyle = {
 };
 
 const Map = ({ locationDetails }) => {
-  console.log('location details', locationDetails);
   const [activeMarker, setActiveMarker] = useState(null);
-
-  const centerCoords = { lat: 41.850033, lng: -87.6500523 };
-
-  const markers = mockLocationDetails.data.searchLocations.map((location) => {
-    return {
-      id: location.name,
-      name: location.name,
-      position: { lat: location.lat, lng: location.long },
-      phone: location.phone,
-      address: location.address,
-      url: location.url,
-    };
-  });
+  
+  const locationDetailsExist = locationDetails.data?.searchLocations?.length;
+  let centerCoords = { lat: 44.6714, lng: -103.8521 };
+  let markersData = [];
+  if (locationDetailsExist) {
+    markersData = locationDetails.data.searchLocations.map((location, index) => {
+      const newLocation = {
+        id: location.address,
+        name: location.name,
+        position: { lat: location.lat, lng: location.long },
+        phone: location.phone,
+        address: location.address,
+        url: location.url,
+      };
+      if (!index) {
+        centerCoords = newLocation.position;
+      }
+      return newLocation;
+    });
+  }
 
   const handleActiveMarker = (marker) => {
     if (marker === activeMarker) {
@@ -45,9 +50,9 @@ const Map = ({ locationDetails }) => {
       <GoogleMap
         mapContainerStyle={containerStyle}
         center={activeMarker ? activeMarker.position : centerCoords}
-        zoom={5}
+        zoom={locationDetailsExist ? 10 : 4.5}
       >
-        {markers.map(({ id, name, position, phone, address, url }) => (
+        { markersData.length > 0 && markersData.map(({ id, name, position, phone, address, url }) => (
           <Marker
             key={id}
             position={position}
@@ -71,7 +76,7 @@ const Map = ({ locationDetails }) => {
               </InfoWindow>
             ) : null}
           </Marker>
-        ))}
+        )) }
       </GoogleMap>
     </LoadScript>
   );
