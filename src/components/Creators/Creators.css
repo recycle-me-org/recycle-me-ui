@@ -4,16 +4,10 @@
   font-family: inherit;
 }
 
-.meet-the-team {
-  display: flex;
-  justify-content: center;
-  font-size: 30px;
-  padding: 20px 0 20px 0;
-}
-
 .frontend-and-backend-containers {
   display: flex;
   flex-direction: row;
+  padding-top: 20px;
 }
 
 .frontend-container,

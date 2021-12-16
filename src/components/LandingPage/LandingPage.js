@@ -1,4 +1,4 @@
-import landingPageBackground from '../../assets/landing-page-background.jpg';
+import landingPageBackground from '../../assets/working-hands.jpg';
 import './LandingPage.css';
 
 const LandingPage = () => (
@@ -19,7 +19,8 @@ const LandingPage = () => (
       </div>
     </section>
     <div className="landing-page-footer">
-      Need help recycling? Search for a recycling solution below
+      <p className="landing-page-footer__top">Need help?</p> 
+      <p className="landing-page-footer__bottom">Search for a recycling solution below.</p>
     </div>
   </>
 );

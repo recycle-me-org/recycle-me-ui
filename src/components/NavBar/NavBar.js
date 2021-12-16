@@ -11,8 +11,6 @@ const NavBar = () => (
       </Link>
     </div>
     <div className="nav-links">
-      <p className="nav-link-1">Recycle Item</p>
-      <p className="nav-link-2">Articles</p>
       <Link to="/creators">
         <p className="nav-link-3">Creators</p>
       </Link>

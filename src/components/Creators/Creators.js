@@ -11,7 +11,6 @@ import ezze from '../../assets/ezze.png';
 const Creators = () => {
   return (
     <section className="creators-page">
-      <h1 className="meet-the-team">Meet the Team!</h1>
       <div className="frontend-and-backend-containers">
         <div className="frontend-container">
           <h2 className="frontend">Frontend</h2>
