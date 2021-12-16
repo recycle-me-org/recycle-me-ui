@@ -33,6 +33,7 @@
 }
 
 .error-message {
-  color: red;
-  font-size: 12px;
+  text-align: center;
+  padding: 10px;
 }
+

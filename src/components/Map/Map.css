@@ -3,3 +3,13 @@
   border: 1px solid #cccc;
   padding: 15;
 }
+
+.business-name {
+  font-size: 14px;
+  font-weight: bolder;
+  margin: 8px;
+}
+
+.business-info {
+  margin: 8px;
+}

@@ -7,14 +7,14 @@ import RecyclingTips from '../RecyclingTips/RecyclingTips';
 import SearchBar from '../SearchBar/SearchBar';
 import Footer from '../Footer/Footer';
 import './App.css';
-import Creators from '../Creators/Creators'
+import Creators from '../Creators/Creators';
+import NoMatch from '../NoMatch/NoMatch';
 
 const App = () => {
-  const [placeIds, setPlaceIds] = useState([]);
+  const [locationDetails, setlocationDetails] = useState([]);
 
-  const updatePlaceIds = (newPlaceIds) => {
-    setPlaceIds(newPlaceIds);
-    console.log('updatePlaceIds');
+  const updateLocationDetails = (newLocationDetails) => {
+    setlocationDetails(newLocationDetails);
   };
 
   return (
@@ -22,11 +22,11 @@ const App = () => {
       <NavBar />
       <Routes>
         <Route 
-          path="/recycle-me-ui"
+          path="recycle-me-ui"
           element={<>
             <LandingPage />
-            <SearchBar updatePlaceIds={ updatePlaceIds } />
-            <Map placeIds={ placeIds } />
+            <SearchBar updateLocationDetails={ updateLocationDetails } />
+            <Map locationDetails={ locationDetails } />
             <RecyclingTips />
           </>} 
         />
@@ -34,7 +34,7 @@ const App = () => {
           path="creators" 
           element={<Creators />} 
         /> 
-        {/* <Route path="*" element={<NoMatch />} /> */}
+        <Route path="*" element={<NoMatch />} />
       </Routes>
       <Footer />
     </main>

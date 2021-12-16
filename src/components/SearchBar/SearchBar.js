@@ -3,43 +3,49 @@ import { gql, useLazyQuery } from '@apollo/client';
 import MaterialsDropdown from '../MaterialsDropdown/MaterialsDropdown';
 import './SearchBar.css';
 
-const SearchBar = ({ updatePlaceIds }) => {
+const SearchBar = ({ updateLocationDetails }) => {
   const [materialId, setMaterialId] = useState('');
   const [location, setLocation] = useState('');
 
   const updateMaterialId = (id) => setMaterialId(id);
 
-  const GET_PLACE_IDS = gql`
+  const GET_LOCATION_DETAILS = gql`
     query searchLocations($materialId: String!, $location: String!) {
       searchLocations(materialId: $materialId, location: $location) {
-        placeId
+        name
+        long
+        lat
+        hours
+        phone
+        url
+        distance
+        address
       }
     }
   `;
 
-  const [getPlaceIds, { loading, error, data }] = useLazyQuery(GET_PLACE_IDS);
+  const [getLocationDetails, { loading, error }] = useLazyQuery(
+    GET_LOCATION_DETAILS
+  );
 
   const handleChange = (e) => {
     const locationInput = e.target.value;
     setLocation(locationInput);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const placeIds = getPlaceIds({
+    const newLocationDetails = await getLocationDetails({
       variables: {
         materialId: materialId,
         location: `${location}, United States`,
       },
     });
-    updatePlaceIds(placeIds);
+    updateLocationDetails(newLocationDetails);
   };
 
   return (
     <>
-      {loading && <p>Loading...</p>}
-      {error && <p>{error.message}</p>}
-      {data && console.log('data: ', data)}
       <form onSubmit={(e) => handleSubmit(e)} className="search-bar">
         <MaterialsDropdown updateMaterialId={updateMaterialId} />
         <div className="search-bar__input-container search-bar__input-container--zip">
@@ -55,6 +61,8 @@ const SearchBar = ({ updatePlaceIds }) => {
         </div>
         <button className="search-bar__button">Search</button>
       </form>
+      {loading && <p className="error-message">Loading...</p>}
+      {error && <p>{error.message}</p>}
     </>
   );
 };
