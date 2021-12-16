@@ -6,7 +6,7 @@ const NavBar = () => (
   <header className="nav-container">
     <div className="nav-icon-and-h1">
       <img src={recycleIcon} className="recycle-icon" alt="recycle" />
-      <Link to="/">
+      <Link to="/recycle-me-ui">
         <h1 className="nav-h1 cy-title">Recycle Me</h1>
       </Link>
     </div>

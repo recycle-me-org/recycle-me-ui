@@ -10,23 +10,32 @@ import './App.css';
 import Creators from '../Creators/Creators';
 import NoMatch from '../NoMatch/NoMatch';
 
-// const Creators = React.lazy(() => import("./pages/Creators"));
-
 const App = () => {
   const [locationDetails, setlocationDetails] = useState([]);
 
   const updateLocationDetails = (newlocationDetails) => {
     setlocationDetails(newlocationDetails);
-    console.log(locationDetails);
   };
 
   return (
     <main className="app">
       <NavBar />
-      <LandingPage />
-      <Map locationDetails={locationDetails} />
-      <SearchBar updateLocationDetails={updateLocationDetails} />
-      <RecyclingTips />
+      <Routes>
+        <Route 
+          path="recycle-me-ui"
+          element={<>
+            <LandingPage />
+            <Map locationDetails={ locationDetails } />
+            <SearchBar updateLocationDetails={ updateLocationDetails } />
+            <RecyclingTips />
+          </>} 
+        />
+        <Route 
+          path="creators" 
+          element={<Creators />} 
+        /> 
+        <Route path="*" element={<NoMatch />} />
+      </Routes>
       <Footer />
     </main>
   );
