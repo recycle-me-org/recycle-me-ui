@@ -1,7 +1,7 @@
 <div align="center">
 <h1> ♻ Recycle Me ♻️</h1>
 <p><strong>"Because sometimes we need a little help recycling.
-    Bin less, recycle more."</strong></p>
+    Waste less, recycle more."</strong></p>
 <p>Recycle me is a web application built for the environmentally conscious person who would like to know more about recycling.  When the user visits the app, they are greeted by a map, search bar, and an instructional list of items that can be recycled in the recycle bin at home.  The user can enter their address or zip code, as well as a hard to recycle item (which auto fills while the user is typing) into the search bar.  When the user presses the search key, the ten closest recycle drop-off locations for the specific hard to recycle item will render on the map.  The user can click on a specific map marker to see the business name, address, phone number, and a link to the companies external website.</p>
 <a href="https://recycle-me-ui.herokuapp.com/recycle-me-ui">Visit the deployed application here</a>
 </div> 
