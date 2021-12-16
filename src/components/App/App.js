@@ -7,7 +7,8 @@ import RecyclingTips from '../RecyclingTips/RecyclingTips';
 import SearchBar from '../SearchBar/SearchBar';
 import Footer from '../Footer/Footer';
 import './App.css';
-import Creators from '../Creators/Creators'
+import Creators from '../Creators/Creators';
+import NoMatch from '../NoMatch/NoMatch';
 
 // const Creators = React.lazy(() => import("./pages/Creators"));
 
@@ -24,7 +25,7 @@ const App = () => {
       <NavBar />
       <Routes>
         <Route 
-          path="/"
+          path="/recycle-me-ui/"
           element={<>
             <LandingPage />
             <Map placeIds={ placeIds } />
@@ -35,7 +36,7 @@ const App = () => {
           path="creators" 
           element={<Creators />} 
         /> 
-        {/* <Route path="*" element={<NoMatch />} /> */}
+        <Route path="*" element={<NoMatch />} />
       </Routes>
       <Footer />
     </main>
