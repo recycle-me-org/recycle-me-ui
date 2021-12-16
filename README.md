@@ -28,6 +28,7 @@ For the Capstone Project, Students at Turing School of Software and Design colla
         <td>GraphQL</td>
         <td>Apollo</td>
         <td>Heroku</td>
+        <td>Google Maps</td>
     </tr>
     </tr>
         <td><img src="https://user-images.githubusercontent.com/73092355/119360616-074c6580-bc68-11eb-8ac1-f1ca05b87bf8.png" alt="javascript" width="100" height="auto" /></td>
@@ -40,6 +41,7 @@ For the Capstone Project, Students at Turing School of Software and Design colla
         <td><img src="https://user-images.githubusercontent.com/81186709/146031679-c3d2c472-b048-484b-ae85-2b5354d0b81f.png" alt="GraphQL" width="100" height="auto" /></td>
         <td><img src="https://user-images.githubusercontent.com/81186709/146032044-06e09098-e626-4dc3-a104-d3d4fc82bf59.png" alt="Apollo" width="100" height="auto" /></td>
          <td><img src="https://www.freecodecamp.org/news/content/images/size/w2000/2020/08/wall-2.jpeg" alt="Heroku" width="100" height="auto" /></td>
+         <td><img src="https://user-images.githubusercontent.com/81186709/146323461-c0a03a21-d6ea-431c-9ac5-188cf905bedd.png" alt="Google Maps" width="100" height="auto" /></td>
     </tr>
 </table>
 
@@ -60,7 +62,7 @@ Made with [Create React App](https://reactjs.org/docs/create-a-new-react-app.htm
 ## Wins
 ``Learning new technologies -- Apollo, GraphQL, and Google Maps``
 
-- Independently learning each technology through documentation, YouTube tutorials, the help of Project Manger's and team collaboration was an empowering experience.
+- Independently learning each technology through documentation, YouTube tutorials, the help of Project Manager's and team collaboration was an empowering experience.
 
 ``Successfully collaborating as a full-stack team``  
 
