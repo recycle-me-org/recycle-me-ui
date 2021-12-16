@@ -60,7 +60,7 @@ Made with [Create React App](https://reactjs.org/docs/create-a-new-react-app.htm
 ## Wins
 ``Learning new technologies -- Apollo, GraphQL, and Google Maps``
 
-- Independently learning each technology through documentation, YouTube tutorials, the help of Project Manger's and team collaboration was an empowering experience.
+- Independently learning each technology through documentation, YouTube tutorials, the help of Project Manager's and team collaboration was an empowering experience.
 
 ``Successfully collaborating as a full-stack team``  
 
