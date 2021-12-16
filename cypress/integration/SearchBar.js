@@ -1,6 +1,6 @@
 import { classBody } from "@babel/types";
 
-describe('NavBar', () => {
+describe('SearchBar', () => {
 
   beforeEach(() => {
     cy.visit('http://localhost:3000');
