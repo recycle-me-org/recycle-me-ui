@@ -25,8 +25,8 @@ const App = () => {
           path="/recycle-me-ui"
           element={<>
             <LandingPage />
-            <Map placeIds={ placeIds } />
             <SearchBar updatePlaceIds={ updatePlaceIds } />
+            <Map placeIds={ placeIds } />
             <RecyclingTips />
           </>} 
         />
