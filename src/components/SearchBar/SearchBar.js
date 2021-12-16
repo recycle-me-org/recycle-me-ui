@@ -46,8 +46,6 @@ const SearchBar = ({ updateLocationDetails }) => {
 
   return (
     <>
-      {loading && <p>Loading...</p>}
-      {error && <p>{error.message}</p>}
       <form onSubmit={(e) => handleSubmit(e)} className="search-bar">
         <MaterialsDropdown updateMaterialId={updateMaterialId} />
         <div className="search-bar__input-container search-bar__input-container--zip">
@@ -57,12 +55,14 @@ const SearchBar = ({ updateLocationDetails }) => {
             name="location"
             value={location}
             aria-label="location"
-            placeholder="location"
+            placeholder="enter zipcode"
             onChange={(e) => handleChange(e)}
           ></input>
         </div>
         <button className="search-bar__button">Search</button>
       </form>
+      {loading && <p className="error-message">Loading...</p>}
+      {error && <p>{error.message}</p>}
     </>
   );
 };

@@ -1,7 +1,6 @@
 describe('Creators', () => {
   it('Should display Meet the Team! and all team members', () => {
     cy.visit('http://localhost:3000/creators')
-    cy.get('h1.meet-the-team').should('have.text', 'Meet the Team!')
     cy.get('h2.frontend').should('have.text', 'Frontend')
     cy.get('h2.backend').should('have.text', 'Backend')
     cy.get('.frontend-container > :nth-child(2)').should('exist')
