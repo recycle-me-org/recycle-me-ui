@@ -3,7 +3,7 @@ import { classBody } from "@babel/types";
 describe('SearchBar', () => {
 
   beforeEach(() => {
-    cy.visit('http://localhost:3000');
+    cy.visit('http://localhost:3000/recycle-me-ui');
   })
 
     it('Should have an input container where user can select material', () => {
