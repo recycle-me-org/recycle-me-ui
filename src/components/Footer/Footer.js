@@ -4,7 +4,6 @@ import './Footer.css';
 const Footer = () => (
   <section className="footer-container">
     <div className="footer-links">
-      <p className="footer-mobile-app">Contact Us</p>
       <Link to="/creators">
         <p className="footer-creators">Creators</p>
       </Link>
