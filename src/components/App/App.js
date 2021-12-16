@@ -9,8 +9,6 @@ import Footer from '../Footer/Footer';
 import './App.css';
 import Creators from '../Creators/Creators'
 
-// const Creators = React.lazy(() => import("./pages/Creators"));
-
 const App = () => {
   const [placeIds, setPlaceIds] = useState([]);
 
@@ -24,7 +22,7 @@ const App = () => {
       <NavBar />
       <Routes>
         <Route 
-          path="/"
+          path="/recycle-me-ui"
           element={<>
             <LandingPage />
             <Map placeIds={ placeIds } />
