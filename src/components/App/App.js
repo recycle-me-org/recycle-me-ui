@@ -13,31 +13,20 @@ import NoMatch from '../NoMatch/NoMatch';
 // const Creators = React.lazy(() => import("./pages/Creators"));
 
 const App = () => {
-  const [placeIds, setPlaceIds] = useState([]);
+  const [locationDetails, setlocationDetails] = useState([]);
 
-  const updatePlaceIds = (newPlaceIds) => {
-    setPlaceIds(newPlaceIds);
-    console.log('updatePlaceIds');
+  const updateLocationDetails = (newlocationDetails) => {
+    setlocationDetails(newlocationDetails);
+    console.log(locationDetails);
   };
 
   return (
     <main className="app">
       <NavBar />
-      <Routes>
-        <Route 
-          path="/recycle-me-ui/"
-          element={<>
-            <LandingPage />
-            <Map placeIds={ placeIds } />
-            <SearchBar updatePlaceIds={ updatePlaceIds } />
-          </>} 
-        />
-        <Route 
-          path="creators" 
-          element={<Creators />} 
-        /> 
-        <Route path="*" element={<NoMatch />} />
-      </Routes>
+      <LandingPage />
+      <Map locationDetails={locationDetails} />
+      <SearchBar updateLocationDetails={updateLocationDetails} />
+      <RecyclingTips />
       <Footer />
     </main>
   );
