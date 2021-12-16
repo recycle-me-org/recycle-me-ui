@@ -29,6 +29,7 @@ const App = () => {
             <LandingPage />
             <Map placeIds={ placeIds } />
             <SearchBar updatePlaceIds={ updatePlaceIds } />
+            <RecyclingTips />
           </>} 
         />
         <Route 
