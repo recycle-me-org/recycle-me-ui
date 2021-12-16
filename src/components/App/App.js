@@ -7,16 +7,14 @@ import RecyclingTips from '../RecyclingTips/RecyclingTips';
 import SearchBar from '../SearchBar/SearchBar';
 import Footer from '../Footer/Footer';
 import './App.css';
-import Creators from '../Creators/Creators'
-
-// const Creators = React.lazy(() => import("./pages/Creators"));
+import Creators from '../Creators/Creators';
+import NoMatch from '../NoMatch/NoMatch';
 
 const App = () => {
-  const [placeIds, setPlaceIds] = useState([]);
+  const [locationDetails, setlocationDetails] = useState([]);
 
-  const updatePlaceIds = (newPlaceIds) => {
-    setPlaceIds(newPlaceIds);
-    console.log('updatePlaceIds');
+  const updateLocationDetails = (newLocationDetails) => {
+    setlocationDetails(newLocationDetails);
   };
 
   return (
@@ -24,18 +22,19 @@ const App = () => {
       <NavBar />
       <Routes>
         <Route 
-          path="/"
+          path="recycle-me-ui"
           element={<>
             <LandingPage />
-            <Map placeIds={ placeIds } />
-            <SearchBar updatePlaceIds={ updatePlaceIds } />
+            <Map locationDetails={ locationDetails } />
+            <SearchBar updateLocationDetails={ updateLocationDetails } />
+            <RecyclingTips />
           </>} 
         />
         <Route 
           path="creators" 
           element={<Creators />} 
         /> 
-        {/* <Route path="*" element={<NoMatch />} /> */}
+        <Route path="*" element={<NoMatch />} />
       </Routes>
       <Footer />
     </main>
