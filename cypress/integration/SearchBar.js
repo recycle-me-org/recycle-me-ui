@@ -1,3 +1,5 @@
+import { classBody } from "@babel/types";
+
 describe('NavBar', () => {
 
   beforeEach(() => {
@@ -27,5 +29,10 @@ describe('NavBar', () => {
         .should('have.value', '')
         .type('80220')
         .should('have.value', '80220')
+    });
+
+    it('Should click on search button after valid inputs are entered', () => {
+      cy.get('.search-bar__button')
+        .click()
     });
 })
