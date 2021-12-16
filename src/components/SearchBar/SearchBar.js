@@ -49,7 +49,7 @@ const SearchBar = ({ updatePlaceIds }) => {
             name="location"
             value={location}
             aria-label="location"
-            placeholder="location"
+            placeholder="enter zipcode"
             onChange={(e) => handleChange(e)}
           ></input>
         </div>
