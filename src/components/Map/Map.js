@@ -8,7 +8,7 @@ import {
 } from '@react-google-maps/api';
 
 require('dotenv').config();
-const mapsApiKey = process.env.REACT_APP_MAP_KEY;
+const mapsApiKey = 'AIzaSyCgPSzJ7PynNjd_zw7rd4hMOXaJQxhXQdQ';
 
 const containerStyle = {
   width: '100%',
@@ -17,25 +17,27 @@ const containerStyle = {
 
 const Map = ({ locationDetails }) => {
   const [activeMarker, setActiveMarker] = useState(null);
-  
+
   const locationDetailsExist = locationDetails.data?.searchLocations?.length;
   let centerCoords = { lat: 44.6714, lng: -103.8521 };
   let markersData = [];
   if (locationDetailsExist) {
-    markersData = locationDetails.data.searchLocations.map((location, index) => {
-      const newLocation = {
-        id: location.address,
-        name: location.name,
-        position: { lat: location.lat, lng: location.long },
-        phone: location.phone,
-        address: location.address,
-        url: location.url,
-      };
-      if (!index) {
-        centerCoords = newLocation.position;
+    markersData = locationDetails.data.searchLocations.map(
+      (location, index) => {
+        const newLocation = {
+          id: location.address,
+          name: location.name,
+          position: { lat: location.lat, lng: location.long },
+          phone: location.phone,
+          address: location.address,
+          url: location.url,
+        };
+        if (!index) {
+          centerCoords = newLocation.position;
+        }
+        return newLocation;
       }
-      return newLocation;
-    });
+    );
   }
 
   const handleActiveMarker = (marker) => {
@@ -52,31 +54,32 @@ const Map = ({ locationDetails }) => {
         center={activeMarker ? activeMarker.position : centerCoords}
         zoom={locationDetailsExist ? 10 : 4.5}
       >
-        { markersData.length > 0 && markersData.map(({ id, name, position, phone, address, url }) => (
-          <Marker
-            key={id}
-            position={position}
-            onClick={() => handleActiveMarker(id)}
-          >
-            {activeMarker === id ? (
-              <InfoWindow onCloseClick={() => setActiveMarker(null)}>
-                <div className="info-window">
-                  <h1 className="business-name">{name}</h1>
-                  <p className="business-info">{address}</p>
-                  <p className="business-info">{phone}</p>
-                  <a
-                    className="business-info"
-                    target="_blank"
-                    rel="noreferrer"
-                    href={url}
-                  >
-                    {url}
-                  </a>
-                </div>
-              </InfoWindow>
-            ) : null}
-          </Marker>
-        )) }
+        {markersData.length > 0 &&
+          markersData.map(({ id, name, position, phone, address, url }) => (
+            <Marker
+              key={id}
+              position={position}
+              onClick={() => handleActiveMarker(id)}
+            >
+              {activeMarker === id ? (
+                <InfoWindow onCloseClick={() => setActiveMarker(null)}>
+                  <div className="info-window">
+                    <h1 className="business-name">{name}</h1>
+                    <p className="business-info">{address}</p>
+                    <p className="business-info">{phone}</p>
+                    <a
+                      className="business-info"
+                      target="_blank"
+                      rel="noreferrer"
+                      href={url}
+                    >
+                      {url}
+                    </a>
+                  </div>
+                </InfoWindow>
+              ) : null}
+            </Marker>
+          ))}
       </GoogleMap>
     </LoadScript>
   );
