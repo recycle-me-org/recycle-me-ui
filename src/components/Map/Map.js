@@ -8,7 +8,7 @@ import {
 } from '@react-google-maps/api';
 
 require('dotenv').config();
-const mapsApiKey = 'AIzaSyA5SnkW2euN2qr5hu_BDn7_C9jnQePvE7I';
+const mapsApiKey = 'AIzaSyAZ99QUgy8TMNeFtgweozdymf5IUgbzEtE';
 
 const containerStyle = {
   width: '100%',
