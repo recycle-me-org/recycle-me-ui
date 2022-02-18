@@ -1,4 +1,4 @@
-import landingPageBackground from '../../assets/landing-page-background.jpg';
+import landingPageBackground from '../../assets/landing-page-pizza.jpg';
 import './LandingPage.css';
 
 const LandingPage = () => (

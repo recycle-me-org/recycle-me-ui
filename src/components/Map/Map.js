@@ -8,7 +8,7 @@ import {
 } from '@react-google-maps/api';
 
 require('dotenv').config();
-const mapsApiKey = 'AIzaSyCgPSzJ7PynNjd_zw7rd4hMOXaJQxhXQdQ';
+const mapsApiKey = 'AIzaSyA5SnkW2euN2qr5hu_BDn7_C9jnQePvE7I';
 
 const containerStyle = {
   width: '100%',
@@ -19,6 +19,7 @@ const Map = ({ locationDetails }) => {
   const [activeMarker, setActiveMarker] = useState(null);
 
   const locationDetailsExist = locationDetails.data?.searchLocations?.length;
+  //If there are location details then the code will execute to create custom map markers
   let centerCoords = { lat: 44.6714, lng: -103.8521 };
   let markersData = [];
   if (locationDetailsExist) {

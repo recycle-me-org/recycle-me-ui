@@ -7,7 +7,7 @@ import './index.css';
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 
 const client = new ApolloClient({
-  uri: 'https://recycle-me-api.herokuapp.com/graphql',
+  uri: 'https://recycle-me-api.herokuapp.com/graphql/',
   cache: new InMemoryCache(),
 });
 
@@ -19,5 +19,5 @@ ReactDOM.render(
       </ApolloProvider>
     </BrowserRouter>
   </React.StrictMode>,
-  document.getElementById('root'),
+  document.getElementById('root')
 );

@@ -24,9 +24,9 @@ const SearchBar = ({ updateLocationDetails }) => {
     }
   `;
 
-  const [getLocationDetails, { loading, error }] = useLazyQuery(
-    GET_LOCATION_DETAILS
-  );
+  const [getLocationDetails, { loading, error }] =
+    //ASYNC query through apollo, executes when you click search button rather than page load
+    useLazyQuery(GET_LOCATION_DETAILS);
 
   const handleChange = (e) => {
     const locationInput = e.target.value;
@@ -35,6 +35,7 @@ const SearchBar = ({ updateLocationDetails }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    //Once we have material ID and location we call getLocationDetails
     const newLocationDetails = await getLocationDetails({
       variables: {
         materialId: materialId,
